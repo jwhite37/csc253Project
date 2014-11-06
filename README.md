@@ -20,7 +20,7 @@ The first goal of the project will be to find the interesting users code, what w
 Tools
 =============
 
-`Step 1` of the project will involve writing custom Python Objects to hold our processed data.
+`Step 1` of the project will involve writing custom Python Objects to hold our processed data, and making a determination as to what data these objects should hold.
 
 `Step 2` making use of the JSON python library and CoRoutines to parse out the data into the groupings that we're looking for.
 
