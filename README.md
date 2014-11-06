@@ -7,16 +7,16 @@ The interesting part that we'll be looking at in this project is the fact that t
 
 For instance each submission to the site is timestamped and ipaddress logged, allowing us to view a history of each users code submissions. For this project we'll have access to JSON encoded records of the information provided to the site.
 
-Scope of Project
+Project Goals
 =============
 
 The first goal of the project will be to find the interesting users code, what we're looking for here are users who submit non working code (either compile or run time errors) and then end up submitting a working version. This will give us view of students as they work through a problem.
 
-- Development an object model to represent the user and their code submissions.
-- Processing of the JSON data into the object model for further analysis. We'll want to take a look at the data here and try to organize by the ip address to categorize them first. Then for each of these ip addresses we can look at the time stamping to find groupings, we can limit this by denisity of submission. We treat each set of closely related by time stamp submission as a user after this point.
-- Analysis of the objects to determine whether they fit our datapoints or not, and to find out how much of the data actually conforms to the use cases that we're looking for.
-- Thinking use of CoRoutines for the analysis and processing steps for the data, to allow scalability when moving to much larger amounts of data.
-- Running of the code (by VM) on these interesting cases to obtain what errors are being generated.
+1. Development an object model to represent the user and their code submissions.
+2.Processing of the JSON data into the object model for further analysis. We'll want to take a look at the data here and try to organize by the ip address to categorize them first. Then for each of these ip addresses we can look at the time stamping to find groupings, we can limit this by denisity of submission. We treat each set of closely related by time stamp submission as a user after this point.
+3. Analysis of the objects to determine whether they fit our datapoints or not, and to find out how much of the data actually conforms to the use cases that we're looking for.
+4. Running of the code (by VM) on these interesting cases to obtain what errors are being generated.
+5. Analyze the structure of the AST in each step the user took (for those segments that actually compile) and see how these trees progress. This could give us some interseting insight into the thought process of the students.
 
-A second intersting experiment would be to analyze the structure of the AST in each step the user took (for those segments that actually compile) and see how these trees progress. This could give us some interseting insight into the thought process of the students.
-
+Tools
+=============
