@@ -13,7 +13,7 @@ Scope of Project
 The first goal of the project will be to find the interesting users code, what we're looking for here are users who submit non working code (either compile or run time errors) and then end up submitting a working version. This will give us view of students as they work through a problem.
 
 - Development an object model to represent the user and their code submissions.
-- Processing of the JSON data into the object model for further analysis.
+- Processing of the JSON data into the object model for further analysis. We'll want to take a look at the data here and try to organize by the ip address to categorize them. Then for each of these ip addresses we can look at the time stamping to find groupings, we can limit this by denisity of submission. This will help us to handle those cases where we have a shared user on a computer (like a lab situation) and treat each of these groups as one 'user'.
 - Analysis of the objects to determine whether they fit our datapoints or not, and to find out how much of the data actually conforms to this use case.
 - Thinking use of CoRoutines for the analysis and processing steps for the data, to allow scalability when moving to much larger amounts of data.
 
