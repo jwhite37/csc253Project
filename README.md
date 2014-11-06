@@ -25,7 +25,7 @@ Tools
 `Step 3` we'll make use of Python to iterate over the created objects to do analysis on the number of submissions, run them and determine if there is a series of errors to complete code for each user.
 `Step 4` graphviz can potentially be used here, along with the creation of a GUI to 'step' through the code segments for each user.
 
-Learning
+Learning Objectives
 =============
 
 Through this project we're hoping to get a better understanding of several of Pythons features. We'll be making use of CoRoutines to process and route data, the Python JSON library, as well as making use of a visualization software and learning about the Python AST. 
