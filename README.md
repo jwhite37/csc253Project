@@ -10,7 +10,7 @@ For instance each submission to the site is timestamped and ipaddress logged, al
 Scope of Project
 =============
 
-The first goal of the project will be to find the interesting datapoints, what we're looking for here are users who submit non working code (either compile or run time errors) and then end up submitting a working version. This will give us view of students as they work through a problem.
+The first goal of the project will be to find the interesting snaps shots of a users code, what we're looking for here are users who submit non working code (either compile or run time errors) and then end up submitting a working version. This will give us view of students as they work through a problem.
 
 - Development an object model to represent the user and their code submissions.
 - Processing of the JSON data into the object model for further analysis.
