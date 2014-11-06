@@ -18,4 +18,3 @@ The first goal of the project will be to find the interesting users code, what w
 - Thinking use of CoRoutines for the analysis and processing steps for the data, to allow scalability when moving to much larger amounts of data.
 
 
-The second goal of the project will be to undertake some visualization of these users, we'd like to integrate UbiView to view the AST for compilable code, possibly being able to step through each of the steps the user took to generate working code.
