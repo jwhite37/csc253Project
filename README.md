@@ -12,7 +12,7 @@ Project Goals
 
 The first goal of the project will be to find the interesting users code, what we're looking for here are users who submit non working code (either compile or run time errors) and then end up submitting a working version. This will give us view of students as they work through a problem.
 
-1. Development an object model to represent the user and their code submissions.
+1. Development an object model to represent the user and their code submissions. We may use the JSON model here only, not sure if a new object model is needed at this point.
 2. Processing of the JSON data into the object model for further analysis. We'll want to take a look at the data here and try to organize by the ip address to categorize them first. Then for each of these ip addresses we can look at the time stamping to find groupings, we can limit this by denisity of submission. We treat each set of closely related by time stamp submission as a user after this point.
 3. Analysis of the objects to determine whether they fit our datapoints or not, and to find out how much of the data actually conforms to the use cases that we're looking for. Running of the code (by VM) on these interesting cases to obtain what errors the users are making while writing their code.
 4. Analyze the structure of the AST in each step the user took (for those segments that actually compile) and see how these trees progress. This could give us some interseting insight into the thought process of the students.
