@@ -15,7 +15,7 @@ def main():
         with open('../../Data/data_file_modified.txt', 'w') as out_file:
             for line in data:
                 line = add_brackets(json.loads(line))
-                out_file.write(json.dumps(line)+'\n')
+		out_file.write(json.dumps(line)+'\n')
 
 
 if __name__ == '__main__':
