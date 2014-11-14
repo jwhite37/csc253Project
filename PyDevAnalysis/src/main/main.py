@@ -24,13 +24,11 @@ def main():
 
             if i % 100 == 0:
                 print float(i) / n_total_lines
-            if i > 200:
-                break
 
         sf = sf.add_column(SArray(id), name='id')
         sf.add_column(SArray(dt), name='dt')
         sf.add_column(SArray(ip), name='ip')
-        sf.add_column(SArray(py), name='py')
+        sf.add_column(SArray(py, dtype=str), name='py')
         sf.add_column(SArray(script), name='user_script')
 
         sf.save('python_tutor')

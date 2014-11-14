@@ -1,0 +1,7 @@
+#the way to get the group by user_script
+
+t = sf.groupby(['user_script','ip'],{'times':agg.CONCAT('py'), 'count':agg.COUNT('py'), 'py':agg.CONCAT('py')})
+
+
+t = t.groupby(['user_script'],{'submition':agg.CONCAT('ip','times'),'count':agg.SELECT_ONE('count'),'version':agg.CONCAT('ip','py')})
+

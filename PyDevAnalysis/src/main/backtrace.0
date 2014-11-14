@@ -1,0 +1,350 @@
+Pointers
+------------
+0x10012dfc6
+0x1002c2e13
+0x1002b8294
+0x100dde7c7
+0x100dde40e
+0x100dddebc
+0x100de5ed0
+0x100de5301
+0x10029e327
+0x10029b8ba
+0x1002ecf87
+0x10013749f
+0x1001364d0
+0x1001328ab
+0x100133af6
+0x10013382a
+0x100130912
+0x7fff9706b2fc
+0x7fff9706b279
+0x7fff970694b1
+Raw
+------------
+0   unity_server                        0x000000010012dfc6 _Z18__print_back_tracev + 166
+1   unity_server                        0x00000001002c2e13 _ZN8graphlab13v2_block_impl12typed_decodeERKNS0_10block_infoEPcmRNSt3__16vectorINS_13flexible_typeENS5_9allocatorIS7_EEEE + 10435
+2   unity_server                        0x00000001002b8294 _ZN8graphlab13v2_block_impl13block_manager16read_typed_blockENSt3__15tupleIJmmmEEERNS2_6vectorINS_13flexible_typeENS2_9allocatorIS6_EEEEPPNS0_10block_infoE + 100
+3   unity_server                        0x0000000100dde7c7 _ZN8graphlab23sarray_format_reader_v2INS_13flexible_typeEE21fetch_cache_from_fileEmRNS2_11cache_entryE + 135
+4   unity_server                        0x0000000100dde40e _ZN8graphlab23sarray_format_reader_v2INS_13flexible_typeEE21fetch_rows_from_cacheEmmRNSt3__16vectorIS1_NS3_9allocatorIS1_EEEE + 510
+5   unity_server                        0x0000000100dddebc _ZN8graphlab23sarray_format_reader_v2INS_13flexible_typeEE5closeEv + 524
+6   unity_server                        0x0000000100de5ed0 _ZN8graphlab15sarray_iteratorINS_13flexible_typeEEC2EPNS_20sarray_reader_bufferIS1_EEmb + 160
+7   unity_server                        0x0000000100de5301 _ZNSt3__16__treeINS_12__value_typeINS_4pairImmEENS_10shared_ptrIN8graphlab23sarray_format_reader_v1INS5_13flexible_typeEE16block_cache_dataEEEEENS_19__map_value_compareIS3_SB_NS_4lessIS3_EELb1EEENS_9allocatorISB_EEE7destroyEPNS_11__tree_nodeISB_PvEE + 593
+8   unity_server                        0x000000010029e327 _ZN8graphlab15sframe_iteratorC2ERKNSt3__16vectorINS1_10shared_ptrINS_13sarray_readerINS_13flexible_typeEEEEENS1_9allocatorIS7_EEEEmb + 375
+9   unity_server                        0x000000010029b8ba _ZNK8graphlab13sframe_reader5beginEm + 90
+10  unity_server                        0x00000001002ecf87 _ZN8graphlab17groupby_aggregateERKNS_6sframeERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEESE_RKNS4_INS3_4pairISC_NS3_10shared_ptrINS_21group_aggregate_valueEEEEENS8_ISJ_EEEEm + 14647
+11  unity_server                        0x000000010013749f _ZN8graphlab11thread_pool12get_instanceEv + 543
+12  unity_server                        0x00000001001364d0 _ZN8graphlab11thread_pool13wait_for_taskEv + 272
+13  unity_server                        0x00000001001328ab _ZN8graphlab12thread_group6invokeEN5boost8functionIFvvEEEPS0_ + 43
+14  unity_server                        0x0000000100133af6 _ZN5boost3_bi5list2INS0_5valueINS_8functionIFvvEEEEENS2_IPN8graphlab12thread_groupEEEEclIPFvS5_S9_ENS0_5list0EEEvNS0_4typeIvEERT_RT0_i + 86
+15  unity_server                        0x000000010013382a _ZN5boost6detail8function26void_function_obj_invoker0INS_3_bi6bind_tIvPFvNS_8functionIFvvEEEPN8graphlab12thread_groupEENS3_5list2INS3_5valueIS7_EENSE_ISA_EEEEEEvE6invokeERNS1_15function_bufferE + 26
+16  unity_server                        0x0000000100130912 _ZN8graphlab6thread6invokeEPv + 50
+17  libsystem_pthread.dylib             0x00007fff9706b2fc _pthread_body + 131
+18  libsystem_pthread.dylib             0x00007fff9706b279 _pthread_body + 0
+19  libsystem_pthread.dylib             0x00007fff970694b1 thread_start + 13
+
+Demangled
+------------
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+-------------------------------------------------------
+
+
+Pointers
+------------
+0x10012dfc6
+0x1002c2e13
+0x1002b8294
+0x100dde7c7
+0x100dde40e
+0x100dddebc
+0x100de5ed0
+0x100de5301
+0x10029e327
+0x10029b8ba
+0x1002ecf87
+0x10013749f
+0x1001364d0
+0x1001328ab
+0x100133af6
+0x10013382a
+0x100130912
+0x7fff9706b2fc
+0x7fff9706b279
+0x7fff970694b1
+Raw
+------------
+0   unity_server                        0x000000010012dfc6 _Z18__print_back_tracev + 166
+1   unity_server                        0x00000001002c2e13 _ZN8graphlab13v2_block_impl12typed_decodeERKNS0_10block_infoEPcmRNSt3__16vectorINS_13flexible_typeENS5_9allocatorIS7_EEEE + 10435
+2   unity_server                        0x00000001002b8294 _ZN8graphlab13v2_block_impl13block_manager16read_typed_blockENSt3__15tupleIJmmmEEERNS2_6vectorINS_13flexible_typeENS2_9allocatorIS6_EEEEPPNS0_10block_infoE + 100
+3   unity_server                        0x0000000100dde7c7 _ZN8graphlab23sarray_format_reader_v2INS_13flexible_typeEE21fetch_cache_from_fileEmRNS2_11cache_entryE + 135
+4   unity_server                        0x0000000100dde40e _ZN8graphlab23sarray_format_reader_v2INS_13flexible_typeEE21fetch_rows_from_cacheEmmRNSt3__16vectorIS1_NS3_9allocatorIS1_EEEE + 510
+5   unity_server                        0x0000000100dddebc _ZN8graphlab23sarray_format_reader_v2INS_13flexible_typeEE5closeEv + 524
+6   unity_server                        0x0000000100de5ed0 _ZN8graphlab15sarray_iteratorINS_13flexible_typeEEC2EPNS_20sarray_reader_bufferIS1_EEmb + 160
+7   unity_server                        0x0000000100de5301 _ZNSt3__16__treeINS_12__value_typeINS_4pairImmEENS_10shared_ptrIN8graphlab23sarray_format_reader_v1INS5_13flexible_typeEE16block_cache_dataEEEEENS_19__map_value_compareIS3_SB_NS_4lessIS3_EELb1EEENS_9allocatorISB_EEE7destroyEPNS_11__tree_nodeISB_PvEE + 593
+8   unity_server                        0x000000010029e327 _ZN8graphlab15sframe_iteratorC2ERKNSt3__16vectorINS1_10shared_ptrINS_13sarray_readerINS_13flexible_typeEEEEENS1_9allocatorIS7_EEEEmb + 375
+9   unity_server                        0x000000010029b8ba _ZNK8graphlab13sframe_reader5beginEm + 90
+10  unity_server                        0x00000001002ecf87 _ZN8graphlab17groupby_aggregateERKNS_6sframeERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEESE_RKNS4_INS3_4pairISC_NS3_10shared_ptrINS_21group_aggregate_valueEEEEENS8_ISJ_EEEEm + 14647
+11  unity_server                        0x000000010013749f _ZN8graphlab11thread_pool12get_instanceEv + 543
+12  unity_server                        0x00000001001364d0 _ZN8graphlab11thread_pool13wait_for_taskEv + 272
+13  unity_server                        0x00000001001328ab _ZN8graphlab12thread_group6invokeEN5boost8functionIFvvEEEPS0_ + 43
+14  unity_server                        0x0000000100133af6 _ZN5boost3_bi5list2INS0_5valueINS_8functionIFvvEEEEENS2_IPN8graphlab12thread_groupEEEEclIPFvS5_S9_ENS0_5list0EEEvNS0_4typeIvEERT_RT0_i + 86
+15  unity_server                        0x000000010013382a _ZN5boost6detail8function26void_function_obj_invoker0INS_3_bi6bind_tIvPFvNS_8functionIFvvEEEPN8graphlab12thread_groupEENS3_5list2INS3_5valueIS7_EENSE_ISA_EEEEEEvE6invokeERNS1_15function_bufferE + 26
+16  unity_server                        0x0000000100130912 _ZN8graphlab6thread6invokeEPv + 50
+17  libsystem_pthread.dylib             0x00007fff9706b2fc _pthread_body + 131
+18  libsystem_pthread.dylib             0x00007fff9706b279 _pthread_body + 0
+19  libsystem_pthread.dylib             0x00007fff970694b1 thread_start + 13
+
+Demangled
+------------
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+-------------------------------------------------------
+
+
+Pointers
+------------
+0x10012dfc6
+0x1002c2e13
+0x1002b8294
+0x100dde7c7
+0x100dde40e
+0x100dddebc
+0x100de5ed0
+0x100de5301
+0x10029e327
+0x10029b8ba
+0x1002ecf87
+0x10013749f
+0x1001364d0
+0x1001328ab
+0x100133af6
+0x10013382a
+0x100130912
+0x7fff9706b2fc
+0x7fff9706b279
+0x7fff970694b1
+Raw
+------------
+0   unity_server                        0x000000010012dfc6 _Z18__print_back_tracev + 166
+1   unity_server                        0x00000001002c2e13 _ZN8graphlab13v2_block_impl12typed_decodeERKNS0_10block_infoEPcmRNSt3__16vectorINS_13flexible_typeENS5_9allocatorIS7_EEEE + 10435
+2   unity_server                        0x00000001002b8294 _ZN8graphlab13v2_block_impl13block_manager16read_typed_blockENSt3__15tupleIJmmmEEERNS2_6vectorINS_13flexible_typeENS2_9allocatorIS6_EEEEPPNS0_10block_infoE + 100
+3   unity_server                        0x0000000100dde7c7 _ZN8graphlab23sarray_format_reader_v2INS_13flexible_typeEE21fetch_cache_from_fileEmRNS2_11cache_entryE + 135
+4   unity_server                        0x0000000100dde40e _ZN8graphlab23sarray_format_reader_v2INS_13flexible_typeEE21fetch_rows_from_cacheEmmRNSt3__16vectorIS1_NS3_9allocatorIS1_EEEE + 510
+5   unity_server                        0x0000000100dddebc _ZN8graphlab23sarray_format_reader_v2INS_13flexible_typeEE5closeEv + 524
+6   unity_server                        0x0000000100de5ed0 _ZN8graphlab15sarray_iteratorINS_13flexible_typeEEC2EPNS_20sarray_reader_bufferIS1_EEmb + 160
+7   unity_server                        0x0000000100de5301 _ZNSt3__16__treeINS_12__value_typeINS_4pairImmEENS_10shared_ptrIN8graphlab23sarray_format_reader_v1INS5_13flexible_typeEE16block_cache_dataEEEEENS_19__map_value_compareIS3_SB_NS_4lessIS3_EELb1EEENS_9allocatorISB_EEE7destroyEPNS_11__tree_nodeISB_PvEE + 593
+8   unity_server                        0x000000010029e327 _ZN8graphlab15sframe_iteratorC2ERKNSt3__16vectorINS1_10shared_ptrINS_13sarray_readerINS_13flexible_typeEEEEENS1_9allocatorIS7_EEEEmb + 375
+9   unity_server                        0x000000010029b8ba _ZNK8graphlab13sframe_reader5beginEm + 90
+10  unity_server                        0x00000001002ecf87 _ZN8graphlab17groupby_aggregateERKNS_6sframeERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEESE_RKNS4_INS3_4pairISC_NS3_10shared_ptrINS_21group_aggregate_valueEEEEENS8_ISJ_EEEEm + 14647
+11  unity_server                        0x000000010013749f _ZN8graphlab11thread_pool12get_instanceEv + 543
+12  unity_server                        0x00000001001364d0 _ZN8graphlab11thread_pool13wait_for_taskEv + 272
+13  unity_server                        0x00000001001328ab _ZN8graphlab12thread_group6invokeEN5boost8functionIFvvEEEPS0_ + 43
+14  unity_server                        0x0000000100133af6 _ZN5boost3_bi5list2INS0_5valueINS_8functionIFvvEEEEENS2_IPN8graphlab12thread_groupEEEEclIPFvS5_S9_ENS0_5list0EEEvNS0_4typeIvEERT_RT0_i + 86
+15  unity_server                        0x000000010013382a _ZN5boost6detail8function26void_function_obj_invoker0INS_3_bi6bind_tIvPFvNS_8functionIFvvEEEPN8graphlab12thread_groupEENS3_5list2INS3_5valueIS7_EENSE_ISA_EEEEEEvE6invokeERNS1_15function_bufferE + 26
+16  unity_server                        0x0000000100130912 _ZN8graphlab6thread6invokeEPv + 50
+17  libsystem_pthread.dylib             0x00007fff9706b2fc _pthread_body + 131
+18  libsystem_pthread.dylib             0x00007fff9706b279 _pthread_body + 0
+19  libsystem_pthread.dylib             0x00007fff970694b1 thread_start + 13
+
+Demangled
+------------
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+-------------------------------------------------------
+
+
+Pointers
+------------
+0x10012dfc6
+0x1002c2e13
+0x1002b8294
+0x100dde7c7
+0x100dde40e
+0x100dddebc
+0x100ddac96
+0x1002ed0b8
+0x10013749f
+0x1001364d0
+0x1001328ab
+0x100133af6
+0x10013382a
+0x100130912
+0x7fff9706b2fc
+0x7fff9706b279
+0x7fff970694b1
+Raw
+------------
+0   unity_server                        0x000000010012dfc6 _Z18__print_back_tracev + 166
+1   unity_server                        0x00000001002c2e13 _ZN8graphlab13v2_block_impl12typed_decodeERKNS0_10block_infoEPcmRNSt3__16vectorINS_13flexible_typeENS5_9allocatorIS7_EEEE + 10435
+2   unity_server                        0x00000001002b8294 _ZN8graphlab13v2_block_impl13block_manager16read_typed_blockENSt3__15tupleIJmmmEEERNS2_6vectorINS_13flexible_typeENS2_9allocatorIS6_EEEEPPNS0_10block_infoE + 100
+3   unity_server                        0x0000000100dde7c7 _ZN8graphlab23sarray_format_reader_v2INS_13flexible_typeEE21fetch_cache_from_fileEmRNS2_11cache_entryE + 135
+4   unity_server                        0x0000000100dde40e _ZN8graphlab23sarray_format_reader_v2INS_13flexible_typeEE21fetch_rows_from_cacheEmmRNSt3__16vectorIS1_NS3_9allocatorIS1_EEEE + 510
+5   unity_server                        0x0000000100dddebc _ZN8graphlab23sarray_format_reader_v2INS_13flexible_typeEE5closeEv + 524
+6   unity_server                        0x0000000100ddac96 _ZN8graphlab15sarray_iteratorINS_13flexible_typeEEppEv + 102
+7   unity_server                        0x00000001002ed0b8 _ZN8graphlab17groupby_aggregateERKNS_6sframeERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEESE_RKNS4_INS3_4pairISC_NS3_10shared_ptrINS_21group_aggregate_valueEEEEENS8_ISJ_EEEEm + 14952
+8   unity_server                        0x000000010013749f _ZN8graphlab11thread_pool12get_instanceEv + 543
+9   unity_server                        0x00000001001364d0 _ZN8graphlab11thread_pool13wait_for_taskEv + 272
+10  unity_server                        0x00000001001328ab _ZN8graphlab12thread_group6invokeEN5boost8functionIFvvEEEPS0_ + 43
+11  unity_server                        0x0000000100133af6 _ZN5boost3_bi5list2INS0_5valueINS_8functionIFvvEEEEENS2_IPN8graphlab12thread_groupEEEEclIPFvS5_S9_ENS0_5list0EEEvNS0_4typeIvEERT_RT0_i + 86
+12  unity_server                        0x000000010013382a _ZN5boost6detail8function26void_function_obj_invoker0INS_3_bi6bind_tIvPFvNS_8functionIFvvEEEPN8graphlab12thread_groupEENS3_5list2INS3_5valueIS7_EENSE_ISA_EEEEEEvE6invokeERNS1_15function_bufferE + 26
+13  unity_server                        0x0000000100130912 _ZN8graphlab6thread6invokeEPv + 50
+14  libsystem_pthread.dylib             0x00007fff9706b2fc _pthread_body + 131
+15  libsystem_pthread.dylib             0x00007fff9706b279 _pthread_body + 0
+16  libsystem_pthread.dylib             0x00007fff970694b1 thread_start + 13
+
+Demangled
+------------
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+-------------------------------------------------------
+
+
+Pointers
+------------
+0x10012dfc6
+0x100b2eccf
+0x100dddd86
+0x100de08b7
+0x100ddd4ae
+0x100de72ab
+0x100de511e
+0x7fff8fe928a6
+0x10029e0c9
+0x10029d71e
+0x1002ec144
+0x100882314
+0x1000a5dd6
+0x1000a5cfe
+0x1000a5bf2
+0x1000a5a05
+0x10019a047
+0x1001ad643
+0x1001ab947
+0x1000e4a7a
+0x7fff9706b2fc
+0x7fff9706b279
+0x7fff970694b1
+Raw
+------------
+0   unity_server                        0x000000010012dfc6 _Z18__print_back_tracev + 166
+1   unity_server                        0x0000000100b2eccf _ZZN8graphlab15simple_spinlockD1EvENKUlvE_clEv + 591
+2   unity_server                        0x0000000100dddd86 _ZN8graphlab23sarray_format_reader_v2INS_13flexible_typeEE5closeEv + 214
+3   unity_server                        0x0000000100de08b7 _ZN8graphlab23sarray_format_reader_v2INS_13flexible_typeEED2Ev + 39
+4   unity_server                        0x0000000100ddd4ae _ZN8graphlab23sarray_format_reader_v2INS_13flexible_typeEEC2Ev + 654
+5   unity_server                        0x0000000100de72ab _ZN8graphlab13sarray_readerINS_13flexible_typeEED2Ev + 43
+6   unity_server                        0x0000000100de511e _ZNSt3__16__treeINS_12__value_typeINS_4pairImmEENS_10shared_ptrIN8graphlab23sarray_format_reader_v1INS5_13flexible_typeEE16block_cache_dataEEEEENS_19__map_value_compareIS3_SB_NS_4lessIS3_EELb1EEENS_9allocatorISB_EEE7destroyEPNS_11__tree_nodeISB_PvEE + 110
+7   libc++.1.dylib                      0x00007fff8fe928a6 _ZNSt3__119__shared_weak_count16__release_sharedEv + 44
+8   unity_server                        0x000000010029e0c9 _ZN8graphlab13sframe_readerD2Ev + 313
+9   unity_server                        0x000000010029d71e _ZN8graphlab13sframe_reader15reset_iteratorsEv + 94
+10  unity_server                        0x00000001002ec144 _ZN8graphlab17groupby_aggregateERKNS_6sframeERKNSt3__16vectorINS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS8_ISA_EEEESE_RKNS4_INS3_4pairISC_NS3_10shared_ptrINS_21group_aggregate_valueEEEEENS8_ISJ_EEEEm + 10996
+11  unity_server                        0x0000000100882314 _ZN8graphlab12unity_sframe17groupby_aggregateERKNSt3__16vectorINS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS6_IS8_EEEERKNS2_ISA_NS6_ISA_EEEESC_SC_ + 10436
+12  unity_server                        0x00000001000a5dd6 _ZN6cppipc6detail27exec_and_serialize_responseINSt3__110shared_ptrIN8graphlab17unity_sframe_baseEEES5_MS5_FS6_RKNS2_6vectorINS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEENSB_ISD_EEEERKNS7_ISF_NSB_ISF_EEEESH_SH_EJSH_SL_SH_SH_EE4execEPS5_PNS_11comm_serverESN_RNS4_8oarchiveESH_SL_SH_SH_ + 70
+13  unity_server                        0x00000001000a5cfe _ZN6cppipc6detail14execute_disectIN8graphlab17unity_sframe_baseEMS3_FNSt3__110shared_ptrIS3_EERKNS4_6vectorINS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENSB_ISD_EEEERKNS7_ISF_NSB_ISF_EEEESH_SH_ENS4_5tupleIJSH_EEEJSH_SL_SH_EE4execEPS3_PNS_11comm_serverESN_RNS2_8iarchiveERNS2_8oarchiveESH_SL_SH_ + 110
+14  unity_server                        0x00000001000a5bf2 _ZN6cppipc6detail14execute_disectIN8graphlab17unity_sframe_baseEMS3_FNSt3__110shared_ptrIS3_EERKNS4_6vectorINS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENSB_ISD_EEEERKNS7_ISF_NSB_ISF_EEEESH_SH_ENS4_5tupleIJSH_SH_EEEJSH_SL_EE4execEPS3_PNS_11comm_serverESN_RNS2_8iarchiveERNS2_8oarchiveESH_SL_ + 114
+15  unity_server                        0x00000001000a5a05 _ZN6cppipc6detail14execute_disectIN8graphlab17unity_sframe_baseEMS3_FNSt3__110shared_ptrIS3_EERKNS4_6vectorINS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENSB_ISD_EEEERKNS7_ISF_NSB_ISF_EEEESH_SH_ENS4_5tupleIJSH_SL_SH_SH_EEEJEE4execEPS3_PNS_11comm_serverESN_RNS2_8iarchiveERNS2_8oarchiveE + 133
+16  unity_server                        0x000000010019a047 _ZN6cppipc11comm_server8callbackERN8libfault14zmq_msg_vectorES3_ + 3447
+17  unity_server                        0x00000001001ad643 _ZN8libfault18async_reply_socket11process_jobEPNS0_11thread_dataEPNS_14zmq_msg_vectorE + 1635
+18  unity_server                        0x00000001001ab947 _ZN8libfault18async_reply_socket15thread_functionEPNS0_11thread_dataE + 231
+19  unity_server                        0x00000001000e4a7a _ZN5boost6thread21start_thread_noexceptEv + 378
+20  libsystem_pthread.dylib             0x00007fff9706b2fc _pthread_body + 131
+21  libsystem_pthread.dylib             0x00007fff9706b279 _pthread_body + 0
+22  libsystem_pthread.dylib             0x00007fff970694b1 thread_start + 13
+
+Demangled
+------------
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+-------------------------------------------------------
+
+
