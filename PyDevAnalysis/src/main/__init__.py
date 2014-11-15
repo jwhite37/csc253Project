@@ -7,7 +7,7 @@ import json
 from pprint import pprint
 
 # Get a file pointer
-data = open('C:\csc253Project\PyDevAnalysis\Data\data_file.txt')
+data = open('../../Data/RawJSONData.txt')
 
 for e in data:
     print e
