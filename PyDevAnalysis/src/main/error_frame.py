@@ -32,7 +32,7 @@ def main():
             
             # Two different version of Python script
             # need to be compiled on different interpreters
-            if(jo['py'][0] == 2):
+            if(jo['py'][0] == 3):
             
                 # Setup the data model we're using
                 id += [i]
@@ -71,7 +71,7 @@ def main():
         sf.add_column(SArray(error), name='compile_err')
         sf.add_column(SArray(error_msg), name='err_msg')
 
-        sf.save('py2_error_frame')
+        sf.save('py3_error_frame')
 
 
 
