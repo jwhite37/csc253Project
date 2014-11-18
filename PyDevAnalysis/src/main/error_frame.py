@@ -4,7 +4,8 @@ Created on Nov 15, 2014
 @author: jeffery
 
 Creating a frame that contains flags for compile errors
-in the provided script
+in the provided script, as well as the actual error 
+produced by the compile function
 '''
 
 from graphlab import SFrame
@@ -15,50 +16,63 @@ def main():
     with open('../../Data/data_file_modified.txt') as data:
         sf = SFrame()
         
+        # Data model format
+        # RecordID | Date/Time | IP Address | Python Version |
+        # User Script | Compile Flag | Compile Message
         id = []
         dt = []
         ip = []
         py = []
         script = []
-        error = []        
+        error = []       
+        error_msg = [] 
         
         for i, line in enumerate(data):
             jo = json.loads(line)
             
-            id += [i]
-            dt += jo['dt']
-            ip += jo['ip']
-            py += jo['py']            
-            script += jo['user_script']            
+            # Two different version of Python script
+            # need to be compiled on different interpreters
+            if(jo['py'][0] == 2):
             
-            flag = False
-            try:
-                compile(str(jo['user_script']),'<string>','exec')
-            except SyntaxError:
-                flag = True
-
-            if(flag):
-                error += str(0)
-            else:
-                error += str(1)        
-
-        '''
-        print len(id)
-        print len(dt)
-        print len(ip)
-        print len(py)
-        print len(script)
-        print len(error)
-        '''
+                # Setup the data model we're using
+                id += [i]
+                dt += jo['dt']
+                ip += jo['ip']
+                py += jo['py']            
+                script += jo['user_script']  
                 
+                # Run the script on the compile method
+                # and obtain any error message
+                flag = False
+                msg = ""
+                
+                try:
+                    compile(jo['user_script'][0],'<string>','exec')
+                except SyntaxError, e:
+                    msg = str(e)
+                    flag = True
+    
+                if(flag):
+                    error += [1]
+                else:
+                    error += [0] 
+                
+                # We need to chop off the error type
+                # and remove the (filename line number)
+                # to have any meaning here.
+                fix_msg = msg.partition('(')[0]
+                error_msg += [fix_msg.strip()]        
+       
         sf = sf.add_column(SArray(id), name='id')
         sf.add_column(SArray(dt), name='dt')
         sf.add_column(SArray(ip), name='ip')
         sf.add_column(SArray(py, dtype=str), name='py')
         sf.add_column(SArray(script), name='user_script')
         sf.add_column(SArray(error), name='compile_err')
+        sf.add_column(SArray(error_msg), name='err_msg')
 
-        sf.save('error_frame')
+        sf.save('py2_error_frame')
+
 
 
 
