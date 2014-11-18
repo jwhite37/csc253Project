@@ -1,0 +1,26 @@
+Python Tutor Data Analysis Project
+Post 1 - Checking out the Datas
+=============
+
+This section should introduce the GraphLab program and how it was used in our 
+analysis.
+
+Data
+=============
+
+- How the JSON is constructed (examples)
+
+Basic Statistics
+=============
+
+- How did we get the statistics
+
+- How many IP's (and how many submissions for each?)
+- distribution of versions
+
+Error Statistics
+=============
+
+- How did we get the errors (python code samples)
+
+- actual statistics found (split up into both Python versions)
