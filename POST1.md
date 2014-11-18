@@ -35,6 +35,64 @@ not be enough, so we may also be able to make use of the actual date and time to
 
 Having the Python version and the code allows us to execute the code on the appropriate interpreter, which has the potential to allow us to make inferences as to errors, and what a user does when encountered with errors.
 
+Using GraphLab
+=============
+
+Graph lab uses what they call an `SFrame`, which is somewhat similar to a fixed data model. The application makes use of this frame when doing all of it's internal calculation and processing. Therefore, the first step to using it is to place the
+data you want to analyze into such a frame. 
+
+First, the JSON had to be specially formatted, turning each record of the data into a list. The code to do this operation is below:
+
+``` python
+def add_brackets(json_dict):
+    for key in json_dict.keys():
+        # add '[' and ']' to make dict val a list instead of str
+        #which is required by graphlab.SFrame
+        json_dict[key] = [json_dict[key]]
+
+    return json_dict
+
+def main():
+    with open('../../Data/data_file.txt','r') as data:
+        with open('../../Data/data_file_modified.txt', 'w') as out_file:
+            for line in data:
+                line = add_brackets(json.loads(line))
+		out_file.write(json.dumps(line)+'\n')
+
+```
+
+Following this processing we were able to convert this new data into an SFrame for further processing. A truncated version
+of the function we used to create the frame is given below:
+
+``` python
+def main():
+    with open('../../Data/data_file_modified.txt') as data:
+        sf = SFrame()
+        
+	dt = [] # Each column gets created as a list.
+	.
+	.
+	.
+        for i, line in enumerate(data):
+            jo = json.loads(line) # Load in the JSON.
+            dt += jo['dt']	  # Add in each element for this record to our lists.
+	.
+	.
+	.
+	# Create the columns for the frame and then store it.
+        sf = sf.add_column(SArray(id), name='id')
+        sf.add_column(SArray(dt), name='dt')
+        sf.add_column(SArray(ip), name='ip')
+        sf.add_column(SArray(py, dtype=str), name='py')
+        sf.add_column(SArray(script), name='user_script')
+
+        sf.save('python_tutor')
+```
+
+The result of all of this is we have saved an `SFrame` containing our data, and we can now load, manipulate, and even
+display information about this frame as we'll see below.
+
+
 Basic Statistics
 =============
 

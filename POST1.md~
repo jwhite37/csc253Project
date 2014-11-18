@@ -13,7 +13,84 @@ way to get right to doing analysis on the data.
 Data
 =============
 
-- How the JSON is constructed (examples)
+The first step in analyzing any data is to take a look at the format of the data, and what fields are contained in it.
+Python Data came to us in the form of 'submissions' encoded in JSON format. An example of one such record is shown below.
+
+```
+JSON Sample
+{
+	"ip": "75.147.182.5", 
+	"dt": "2014-07-01 00:00:02", 
+	"py": 2, 
+	"user_script": "def odd(x):\n  \n   x%2 != 0\n   return True\n   else\n   return False\n\nodd(10)"
+}
+```
+
+Every time a user presses the `submit` button through the python tutor one of these records is generated. You can
+see that we have access to the IP Address of the user, the date and time of submission, what version of Python they
+are writing code for, and the actual code the user is attempting to run.
+
+One thing we can notice here is that we can 'localize' a user by the IP Address, but because of shared usage this may
+not be enough, so we may also be able to make use of the actual date and time to bind a user to a 'time slice'. 
+
+Having the Python version and the code allows us to execute the code on the appropriate interpreter, which has the potential to allow us to make inferences as to errors, and what a user does when encountered with errors.
+
+Using GraphLab
+=============
+
+Graph lab uses what they call an `SFrame`, which is somewhat similar to a fixed data model. The application makes use of this frame when doing all of it's internal calculation and processing. Therefore, the first step to using it is to place the
+data you want to analyze into such a frame. 
+
+First, the JSON had to be specially formatted, turning each record of the data into a list. The code to do this operation is below:
+
+``` python
+def add_brackets(json_dict):
+    for key in json_dict.keys():
+        # add '[' and ']' to make dict val a list instead of str
+        #which is required by graphlab.SFrame
+        json_dict[key] = [json_dict[key]]
+
+    return json_dict
+
+def main():
+    with open('../../Data/data_file.txt','r') as data:
+        with open('../../Data/data_file_modified.txt', 'w') as out_file:
+            for line in data:
+                line = add_brackets(json.loads(line))
+		out_file.write(json.dumps(line)+'\n')
+
+```
+
+Following this processing we were able to convert this new data into an SFrame for further processing. A truncated version
+of the function we used to create the frame is given below:
+
+``` python
+def main():
+    with open('../../Data/data_file_modified.txt') as data:
+        sf = SFrame()
+        
+	dt = [] # Each column gets created as a list.
+	.
+	.
+	.
+        for i, line in enumerate(data):
+            jo = json.loads(line) # Load in the JSON.
+            dt += jo['dt']	  # Add in each element for this record to our lists.
+	.
+	.
+	.
+	# Create the columns for the frame and then store it.
+        sf = sf.add_column(SArray(id), name='id')
+        sf.add_column(SArray(dt), name='dt')
+        sf.add_column(SArray(ip), name='ip')
+        sf.add_column(SArray(py, dtype=str), name='py')
+        sf.add_column(SArray(script), name='user_script')
+
+        sf.save('python_tutor')
+```
+
+The result of all of this is we have saved an `SFrame` containing our data, and we can now load, manipulate, and even
+display information about this frame as we'll see below.
 
 Basic Statistics
 =============
