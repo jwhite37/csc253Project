@@ -110,7 +110,14 @@ some very basic statistics on the records. Below is a screen cap of the results 
 
 <img src="BlogImages/python_tutor_basic.jpg">
 
-TO DO HERE
+As you can see GraphLab gives us a really nice visual characterization of the data, with little code actually written to obtain it.
+
+- The dataset for the month of July gives us a total of 221,936 submissions.
+- We have 17,180 unique IP addresses, which gives us potentially that many users. In fact we're hoping that after further
+grouping of the submissions based on date range we'll be able to classify even more 'users' from this single month of data.
+- You can see that Python 2 code submissions are much more frequent than Python 3 code submissions, 70% of the submissions
+are Python 2 code, with 30% being Python 3.
+
 
 Error Statistics
 =============
