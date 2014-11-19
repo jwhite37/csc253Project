@@ -191,7 +191,7 @@ Most frequent items:
 +-------------------------------+----------------------+--------------------------------+
 ```
 
-Which gives us the frequency of errors seen in the Python 2 code. Notice how the big one is simply 'invalid syntax',
+Which gives us the most frequen seen in the Python 2 code. Notice how the big one is simply 'invalid syntax',
 which from first glance isn't too helpful and will likely require some further analysis to determine what types of
 code errors are throwing those errors.
 
@@ -223,3 +223,27 @@ Most frequent items:
 |              124               |              110              |               42               |
 +--------------------------------+-------------------------------+--------------------------------+
 ```
+
+Notice how we're getting chopped off on some of these errors, since GraphLab is built with smaller keys
+in mind. We can get at the unique values in the list in the following way.
+
+For the Python 2 Code:
+
+```
+>>> sa.unique()
+dtype: str
+Rows: 42
+["name 'x' is local and global", 'EOL while scanning string literal', "can't assign to list comprehension", "name 'hand' is local and global", "name 'memo' is local and global", 'non-default argument follows default argument', "can't delete literal", "name 'x0' is local and global", "duplicate argument 'arg1' in function definition", 'unexpected unindent', "'return' with argument inside generator", "can't assign to operator", "can't delete function call", "can't assign to literal", 'illegal expression for augmented assignment', "can't assign to function call", 'non-keyword arg after keyword arg', '', "name 'a' is local and global", 'encoding declaration in Unicode string', "can't assign to conditional expression", "'return' outside function", "default 'except:' must be last", 'from __future__ imports must occur at the beginning of the file', 'invalid syntax', "'shift_jis' codec can't decode bytes in position 66-67: illegal multibyte sequence", 'unindent does not match any outer indentation level', 'unexpected EOF while parsing', "name 'y' is local and global", "keyword can't be an expression", "'yield' outside function", 'invalid token', 'EOF while scanning triple-quoted string literal', "can't assign to comparison", 'expected an indented block', "'break' outside loop", "name 'n' is local and global", "'continue' not properly in loop", 'unexpected character after line continuation character', "name 'list1' is local and global", 'unexpected indent', 'not a chance']
+
+```
+
+And for the Python 3 Code:
+
+```
+>>> sa.unique()
+dtype: str
+Rows: 33
+['EOL while scanning string literal', "can't delete operator", "unqualified exec is not allowed in function 'Import' it contains a nested function with free variables", "name 'string' is local and global", "can't delete literal", 'unexpected unindent', "'return' with argument inside generator", "can't assign to operator", "duplicate argument 'student1' in function definition", "can't delete function call", "can't assign to literal", 'illegal expression for augmented assignment', "can't assign to function call", 'non-keyword arg after keyword arg', '', "name 'a' is local and global", 'encoding declaration in Unicode string', "'return' outside function", "name 'str' is local and global", 'invalid syntax', 'unindent does not match any outer indentation level', 'unexpected EOF while parsing', 'Generator expression must be parenthesized if not sole argument', "'yield' outside function", 'invalid token', 'EOF while scanning triple-quoted string literal', "can't assign to comparison", 'expected an indented block', "'break' outside loop", "'continue' not properly in loop", 'unexpected character after line continuation character', "name 'points' is local and global", 'unexpected indent']
+```
+
+In Summary here, you can see how we can use the GraphLab Python API to analyze, and drill down into the data with very little code needed!

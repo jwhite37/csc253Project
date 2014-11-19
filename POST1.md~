@@ -153,4 +153,73 @@ Adding this bit of Python code to our `SFrame` creation script will allow us to 
 
 Because we're dealing with both Python 2 and Python 3 code, we need to compile each record on the appropriate interpreter, so this analysis was done in two runs by breaking up the records appropriately.
 
-- actual statistics found (split up into both Python versions)
+For this part we'll demonstrate how we can get at a single 'column' in the `SFrame`, called an `SArray`. The python code below gets us this object. Simply put an `SFrame` is a dictionary of `SArray`, so we can simply snag it by the key index we're looking for.
+
+```
+import graphlab
+sf = graphlab.load_sframe("py2_error_frame")
+sa = sf['err_msg']
+sa.sketch_summary()
+```
+
+In this way we can get our output directly to the console rather than through the web interface. The output for the Pyton 2 compile errors is shown below.
+
+```
++------------------+--------+----------+
+|       item       | value  | is exact |
++------------------+--------+----------+
+|      Length      | 154897 |   Yes    |
+| # Missing Values |   0    |   Yes    |
+| # unique values  |   42   |    No    |
++------------------+--------+----------+
+
+Most frequent items:
++-------+--------+----------------+-------------------+----------------------------+
+| value |   X2   | invalid syntax | unexpected indent | expected an indented block |
++-------+--------+----------------+-------------------+----------------------------+
+| count | 131500 |     13889      |        2670       |            2142            |
++-------+--------+----------------+-------------------+----------------------------+
++--------------------------------+---------------------------+--------------------------------+
+| unindent does not match an ... | 'return' outside function | EOL while scanning string  ... |
++--------------------------------+---------------------------+--------------------------------+
+|              1841              |            1086           |              517               |
++--------------------------------+---------------------------+--------------------------------+
++-------------------------------+----------------------+--------------------------------+
+| can't assign to function call | 'break' outside loop | encoding declaration in Un ... |
++-------------------------------+----------------------+--------------------------------+
+|              250              |         247          |              183               |
++-------------------------------+----------------------+--------------------------------+
+```
+
+Which gives us the frequency of errors seen in the Python 2 code. Notice how the big one is simply 'invalid syntax',
+which from first glance isn't too helpful and will likely require some further analysis to determine what types of
+code errors are throwing those errors.
+
+For the Python 3 code we obtain the following error frequencies.
+
+```
++------------------+-------+----------+
+|       item       | value | is exact |
++------------------+-------+----------+
+|      Length      | 65459 |   Yes    |
+| # Missing Values |   0   |   Yes    |
+| # unique values  |   33  |    No    |
++------------------+-------+----------+
+
+Most frequent items:
++-------+-------+----------------+-------------------+----------------------------+
+| value |   X2  | invalid syntax | unexpected indent | expected an indented block |
++-------+-------+----------------+-------------------+----------------------------+
+| count | 51524 |     10173      |        1149       |            914             |
++-------+-------+----------------+-------------------+----------------------------+
++--------------------------------+---------------------------+--------------------------------+
+| unindent does not match an ... | 'return' outside function | EOL while scanning string  ... |
++--------------------------------+---------------------------+--------------------------------+
+|              709               |            351            |              171               |
++--------------------------------+---------------------------+--------------------------------+
++--------------------------------+-------------------------------+--------------------------------+
+| encoding declaration in Un ... | can't assign to function call | unexpected character after ... |
++--------------------------------+-------------------------------+--------------------------------+
+|              124               |              110              |               42               |
++--------------------------------+-------------------------------+--------------------------------+
+```
