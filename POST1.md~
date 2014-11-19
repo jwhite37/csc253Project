@@ -92,9 +92,18 @@ def main():
 The result of all of this is we have saved an `SFrame` containing our data, and we can now load, manipulate, and even
 display information about this frame as we'll see below.
 
+
 Basic Statistics
 =============
 
+Once `SFrames` are created and stored, you can easily reload them from the directory they are stored in. This is accomplished
+using the following Python code:
+
+``` python
+import graphlab
+sf = graphlab.load_sframe("python_tutor")
+sf.show()
+```
 - How did we get the statistics
 
 - How many IP's (and how many submissions for each?)

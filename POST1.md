@@ -96,10 +96,21 @@ display information about this frame as we'll see below.
 Basic Statistics
 =============
 
-- How did we get the statistics
+Once `SFrames` are created and stored, you can easily reload them from the directory they are stored in. This is accomplished
+using the following Python code:
 
-- How many IP's (and how many submissions for each?)
-- distribution of versions
+``` python
+import graphlab
+sf = graphlab.load_sframe("python_tutor")
+sf.show()
+```
+
+The last line of code above creates a very nice web based interface out your frame. For the original JSON data we wanted to get
+some very basic statistics on the records. Below is a screen cap of the results of the `.show()` method call.
+
+<img src="BlogImages/python_tutor_basic.jpg">
+
+TO DO HERE
 
 Error Statistics
 =============
