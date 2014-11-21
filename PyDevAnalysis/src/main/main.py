@@ -4,11 +4,11 @@ from graphlab import SFrame
 from graphlab import SArray
 import json
 
-n_total_lines = 220000
 
-def main():
-    with open('../../Data/data_file_modified.txt') as data:
-        sf = SFrame()
+def create_original_frame(file_name):
+    n_total_lines = 220000
+    sf = SFrame()
+    with open(file_name) as data:
         dt = []
         ip = []
         py = []
@@ -32,7 +32,12 @@ def main():
         sf.add_column(SArray(script), name='user_script')
 
         sf.save('python_tutor')
-        sf.show()
+    return sf
+
+
+def main():
+    create_original_frame('../../Data/data_file_modified.txt')
+
 
 if __name__ == '__main__':
     main()
