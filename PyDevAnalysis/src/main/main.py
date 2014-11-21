@@ -5,7 +5,7 @@ from graphlab import SArray
 import json
 
 
-def create_original_frame(file_name):
+def create_frame_from_file(file_name):
     n_total_lines = 220000
     sf = SFrame()
     with open(file_name) as data:
@@ -36,7 +36,7 @@ def create_original_frame(file_name):
 
 
 def main():
-    create_original_frame('../../Data/data_file_modified.txt')
+    sf = create_frame_from_file('../../Data/data_file_modified.txt')
 
 
 if __name__ == '__main__':
