@@ -21,3 +21,9 @@ def get_time_range(d):
     maxday = datetime.datetime.strptime(' '.join(re.split('-|:|\ ', max(d.keys()))), fmt)
     print minday, maxday
     return minday, maxday
+
+
+def datetime_from_delta(delta="00:30:00"):
+    t0 = datetime.datetime.strptime("00 00 00", "%H %M %S")
+    t = datetime.datetime.strptime(' '.join(re.split(':',delta)), "%H %M %S")
+    return t - t0
