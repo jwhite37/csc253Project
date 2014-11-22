@@ -62,10 +62,14 @@ def create_sessions(sf=SFrame()):
     user_script = []
     err_msg = []
     compile_err = []
+    ignored = 0
 
-    count = 0
     for i in xrange(len(sf)):
-        count += 1
+        count = sf['ip'][i]
+        if count != len(sf['id'][i]):
+            ignored += 1
+            continue
+
         tip = sf['ip'][i]
         chunk = cut_dict_by_dt(sf['user_script'][i])
         user_script += chunk
@@ -73,6 +77,7 @@ def create_sessions(sf=SFrame()):
         compile_err += cut_dict_by_dt(sf['compile_err'][i])
         ip += [tip,] * len(chunk)
 
+    print "DEBUG:", "ignored:", ignored
     rst = SFrame()
     rst.add_column(SArray(ip, dtype=str), name='ip')
     rst.add_column(SArray(user_script, dtype=dict), name='user_script')
@@ -84,13 +89,14 @@ def create_sessions(sf=SFrame()):
 
 def cut_dict_by_dt(d, delta="00:30:00"):
     assert(type(d) == type(dict()))
+    rst = []
     keys = sorted(d.keys())
     if len(d) <= 1:
-        return d
+        rst.append(d)
+        return rst
 
     time_delta = helper.datetime_from_delta(delta)
 
-    rst = []
     cnt_d = {}
     for i, k in enumerate(keys):
         try:
