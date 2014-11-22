@@ -103,6 +103,7 @@ def cut_dict_by_dt(d, delta="00:30:00"):
                 cnt_d = {}
         except IndexError:
             cnt_d[k] = d[k]
+            assert(type(cnt_d) == type(dict()))
             rst.append(cnt_d)
 
     return rst
