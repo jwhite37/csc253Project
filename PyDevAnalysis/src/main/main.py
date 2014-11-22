@@ -119,6 +119,7 @@ def main():
     #sf = create_frame_from_file('../../Data/data_file_modified.txt')
     x = gl.load_sframe('py2_ready_for_session')
     sessions = create_sessions(x)
+    sessions.save('session')
 
 
 
