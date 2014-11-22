@@ -65,7 +65,7 @@ def create_sessions(sf=SFrame()):
     ignored = 0
 
     for i in xrange(len(sf)):
-        count = sf['ip'][i]
+        count = sf['count'][i]
         if count != len(sf['id'][i]):
             ignored += 1
             continue
