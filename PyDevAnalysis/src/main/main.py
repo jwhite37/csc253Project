@@ -56,12 +56,25 @@ Columns:
 """
 
 
+def set_of_interest_bit(l):
+    assert(type(l) == list)
+    rst = []
+    for e in l:
+        assert(type(e) == dict)
+        if sum(e.values()) > 0:
+            rst.append(1)
+        else:
+            rst.append(0)
+    return rst
+
+
 def create_sessions(sf=SFrame()):
-    assert(type(sf) == type(SFrame()))
+    assert(type(sf) == SFrame)
     ip = []
     user_script = []
     err_msg = []
     compile_err = []
+    of_interest = []
     ignored = 0
 
     for i in xrange(len(sf)):
@@ -71,11 +84,16 @@ def create_sessions(sf=SFrame()):
             continue
 
         tip = sf['ip'][i]
-        chunk = cut_dict_by_dt(sf['user_script'][i])
-        user_script += chunk
+        chunk_user_script = cut_dict_by_dt(sf['user_script'][i])
+        user_script += chunk_user_script
+        ip += [tip,] * len(chunk_user_script)
+
         err_msg += cut_dict_by_dt(sf['err_msg'][i])
-        compile_err += cut_dict_by_dt(sf['compile_err'][i])
-        ip += [tip,] * len(chunk)
+
+        chunk_compile_err = cut_dict_by_dt(sf['compile_err'][i])
+        compile_err += chunk_compile_err
+
+        of_interest += set_of_interest_bit(chunk_compile_err)
 
     print "DEBUG:", "ignored:", ignored
     rst = SFrame()
@@ -83,12 +101,13 @@ def create_sessions(sf=SFrame()):
     rst.add_column(SArray(user_script, dtype=dict), name='user_script')
     rst.add_column(SArray(err_msg, dtype=dict), name='err_msg')
     rst.add_column(SArray(compile_err, dtype=dict), name='compile_err')
+    rst.add_column(SArray(of_interest, dtype=int), name='of_interest')
 
     return rst
 
 
 def cut_dict_by_dt(d, delta="00:30:00"):
-    assert(type(d) == type(dict()))
+    assert(type(d) == dict)
     rst = []
     keys = sorted(d.keys())
     if len(d) <= 1:
@@ -109,7 +128,7 @@ def cut_dict_by_dt(d, delta="00:30:00"):
                 cnt_d = {}
         except IndexError:
             cnt_d[k] = d[k]
-            assert(type(cnt_d) == type(dict()))
+            assert(type(cnt_d) == dict)
             rst.append(cnt_d)
 
     return rst
