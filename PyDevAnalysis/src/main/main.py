@@ -74,10 +74,10 @@ def create_sessions(sf=SFrame()):
         ip += [tip,] * len(chunk)
 
     rst = SFrame()
-    rst.add_column(SArray(ip), name='ip')
-    rst.add_column(SArray(user_script), name='user_script')
-    rst.add_column(SArray(err_msg), name='err_msg')
-    rst.add_column(SArray(compile_err), name='compile_err')
+    rst.add_column(SArray(ip, dtype=str), name='ip')
+    rst.add_column(SArray(user_script, dtype=dict), name='user_script')
+    rst.add_column(SArray(err_msg, dtype=dict), name='err_msg')
+    rst.add_column(SArray(compile_err, dtype=dict), name='compile_err')
 
     return rst
 
@@ -85,7 +85,7 @@ def create_sessions(sf=SFrame()):
 def cut_dict_by_dt(d, delta="00:30:00"):
     assert(type(d) == type(dict()))
     keys = sorted(d.keys())
-    if len(d) == 1:
+    if len(d) <= 1:
         return d
 
     time_delta = helper.datetime_from_delta(delta)
