@@ -27,3 +27,10 @@ def datetime_from_delta(delta="00:30:00"):
     t0 = datetime.datetime.strptime("00 00 00", "%H %M %S")
     t = datetime.datetime.strptime(' '.join(re.split(':',delta)), "%H %M %S")
     return t - t0
+
+def print_in_order(d):
+    assert(type(d) == dict)
+    keys = sorted(d.keys())
+    for k in keys:
+        print d[k]
+        print '-' * 50, '\n'
