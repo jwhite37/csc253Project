@@ -11,6 +11,7 @@ produced by the compile function
 from graphlab import SFrame
 from graphlab import SArray
 import json
+import re
 
 def main():
     with open('../../Data/data_file_modified.txt') as data:
@@ -46,12 +47,18 @@ def main():
                 flag = False
                 msg = ""
                 
+                pattern = "is local and global"
+                
                 try:
                     compile(jo['user_script'][0],'<string>','exec')
                 except SyntaxError, e:
-                    msg = str(e)
+                    if(re.search(pattern, str(e))):
+                        msg = "Variable is Local and Global"
+                    else:
+                        msg = str(e)
                     flag = True
-    
+                
+                
                 if(flag):
                     error += [1]
                 else:
@@ -71,7 +78,7 @@ def main():
         sf.add_column(SArray(error), name='compile_err')
         sf.add_column(SArray(error_msg), name='err_msg')
 
-        sf.save('py3_error_frame')
+        sf.save('py3_error_frame_clean')
 
 
 
