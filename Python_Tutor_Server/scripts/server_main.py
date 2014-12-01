@@ -6,17 +6,19 @@ class PyDataAnalysisHandler(BaseHTTPRequestHandler):
 
 	#Hanling for HTTP GET Reqests
 	def do_GET(self):
-		f = open("server_test.html")
+		f = open("index.html")
 		self.send_response(200)
 		self.send_header('Content-type','text/html')
 		self.end_headers()
 		self.wfile.write(f.read())
 		f.close()
-		print 'GET'
 		return
 	#Handling for HTTP POST Requests
 	def do_POST(self):
-		print 'POST'
+		#Here we need to handle a post request containing a session ID
+		#and output the diffs for the submissions in the session
+		#(can we also do the AST graph?)
+		return
 
 #Main method, create the server and let it run
 #to handle incoming requests as necessary.

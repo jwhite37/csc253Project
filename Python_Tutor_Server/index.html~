@@ -6,6 +6,6 @@
 	<body>
 		<p><b>Enter a Session ID Below</b></p>
 		
-		<p align="center"><form action='?' method='POST'>Session ID: <input type='text' name='session_id'/></form></p>
+		<p><form action='?' method='POST'>Session ID: <input type='text' name='session_id'/></form></p>
 	</body>
 </html>
