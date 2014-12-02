@@ -1,11 +1,40 @@
 <html>
 	<head>
-		<title>Pythong Tutor Data Session Selection</title>
+		<title>Python Tutor Data Session Selection</title>
 	</head>
 
 	<body>
-		<p><b>Enter a Session ID Below</b></p>
+
+		<form action="?" method="POST">
+			<h2>Python Tutor Query and Display Demo</h2>
+			<hr/>
+
+			<br/><br/>
+
+			<p align="center"><b>Select Python Version</b></p>
+
+			<p align="center">
+				<select name="python_version">
+					<option value="2">Version 2</option>
+					<option value="3">Version 3</option>
+				</select>
+			</p>
+
+			<p align="center"><b>Select Diff Type</b></p>
+
+			<p align="center">
+				<select name="python_version">
+					<option value="Full">Full Diffs</option>
+					<option value="Context">Context Only</option>
+				</select>
+			</p>
 		
-		<p><form action='?' method='POST'>Session ID: <input type='text' name='session_id'/></form></p>
+
+			<p align="center"><b>Enter a Session ID Below</b></p>
+		
+			<p align="center"><input type='text' name='session_id'/></p>
+
+			<p align="center"><input type="submit" name="submit" value="Query"/></p>
+		</form>
 	</body>
 </html>
