@@ -5,8 +5,9 @@ import cgi
 import codediff
 import json
 import ast
-import ctree
+import ctree.nodes
 import os
+from os import curdir,sep
 
 SERVER_PORT = 8080
 
@@ -46,25 +47,22 @@ class PythonTutorSession:
 		return html
 
 
-    #Create png file
-    #if file exists return path
-    #otherwise None
-    def getImage(self):
-        m_session = self.session
-        for idx, e in enumerate(m_session):
-            py = e['py']
-            user_script = e['user_script']
-            file_name = str(e['session_id']) + '_' + idx
-            if e['compile_err'] == 1:
-                yield None
-            if  py == '2':
-                tree = ast.parse(user_script)
-                path = "../data/ast-trees/" + file_name
-                if not os.path.isfile(path):
-                    ctree.DotManager.dot_ast_to_file(tree, path)
-                yield path
-            elif py == '3':
-                yield None
+	#Create png file
+	#if file exists return path
+	#otherwise None
+	def createImage(self,version,script,filename):
+		if(version == "3"):
+			return ""
+		else:
+			path = "data/tree-png/"+filename
+			try:
+				tree = ast.parse(script)
+				if not os.path.isfile(path+".png"):
+					ctree.DotManager.dot_ast_to_file(tree, path+".png")	
+				return path + ".png"
+			except SyntaxError:
+				return ""
+		 
 
 	#Return the diffs
 	def getDiffs(self):
@@ -77,7 +75,7 @@ class PythonTutorSession:
 
 		prev_row = ""
 
-		for e in m_session:
+		for idx,e in enumerate (m_session):
 			if(prev_row == ""):
 				prev_row = e
 			else:
@@ -85,6 +83,11 @@ class PythonTutorSession:
 				html += "<p align='center'><b>Submission Date:&nbsp;" + str(e['dt']) + "&nbsp;&nbsp;with error:&nbsp;" + str(e['err_msg'])
 
 				html += codediff.sdiff_lines(prev_row['user_script'].split('\n'),e['user_script'].split('\n'),prev_row['dt'],e['dt'],self.diffs,0,3)
+				html += "<p align='center'>"
+				html += "<img style='width:50%;' src='" + self.createImage(self.python_version,prev_row['user_script'],str(self.session_id) + '_image_' + str(idx - 1)) + "'/>"
+				html += "<img style='width:50%;' src='" + self.createImage(self.python_version,e['user_script'],str(self.session_id) + '_image_' + str(idx)) + "'/>"
+
+
 				html += "<hr/>"
 
 				prev_row = e
@@ -106,7 +109,8 @@ class PyDataAnalysisHandler(BaseHTTPRequestHandler):
 
 	#Hanling for HTTP GET Reqests
 	def do_GET(self):
-		f = open("index.html")
+		#if(self.path.endswith(".html")):
+		f = open(curdir + sep + self.path)
 		self.send_response(200)
 		self.send_header('Content-type','text/html')
 		self.end_headers()
@@ -143,7 +147,7 @@ class PyDataAnalysisHandler(BaseHTTPRequestHandler):
 			comment = web_form.getvalue("session_comment")
 
 			data = {"session_id":session,"py":version,"comment":comment}
-			with open("data/comment_data.txt",'w') as output
+			with open("data/comment_data.txt",'w') as output:
 				json.dump(data,output)
 
 			html_body = "Thanks for playing!"
