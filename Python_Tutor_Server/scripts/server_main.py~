@@ -3,7 +3,12 @@ import graphlab as gl
 from graphlab import SFrame
 import cgi
 import codediff
+<<<<<<< HEAD
 import json
+=======
+import ast
+import ctree
+>>>>>>> 45c8fe1ad59611a7ac97103add382780cd03afb9
 
 SERVER_PORT = 8080
 
@@ -33,14 +38,32 @@ class PythonTutorSession:
 		information = m_session[1]
 
 		html = "<h2>Basic Session Information</h2><hr/>"
-		
+
 		html += "<p align='center'>"
-		html += "<b>Session ID:</b>&nbsp;" + str(information['session_id']) 
+		html += "<b>Session ID:</b>&nbsp;" + str(information['session_id'])
 		html += "&nbsp;&nbsp;&nbsp;<b>IP Address:</b>&nbsp;" + str(information['ip'])
 		html += "&nbsp;&nbsp;&nbsp;<b>Python:</b>&nbsp;" + str(information['py'])
 		html += "</p><hr/>"
-		
+
 		return html
+
+
+    #Create png file
+    #if file exists return path
+    #otherwise None
+    def getImage(self):
+        m_session = self.session
+        for idx, e in enumerate(m_session):
+            py = e['py']
+            user_script = e['user_script']
+            file_name = str(e['session_id']) + '_' + idx
+            if e['compile_err'] == 1:
+                return None
+            if  py == '2':
+                tree = ast.parse(user_script)
+                ctree.DotManager.dot_ast_to_file(tree, "../data/" + file_name)
+            elif py == '3':
+                return None
 
 	#Return the diffs
 	def getDiffs(self):
@@ -68,6 +91,7 @@ class PythonTutorSession:
 
 	#Return comment form
 	def getComment(self):
+<<<<<<< HEAD
 		html = "<p align='center'>Enter in Comments on this Session!</p>"
 		html += "<form action='?' method='POST'>"
 		html += "<input type='hidden' name='python_version' value='" + self.python_version + "'/>"
@@ -77,6 +101,10 @@ class PythonTutorSession:
 
 		return html
 	
+=======
+		return "<p>COMMENT FORM!</p>"
+
+>>>>>>> 45c8fe1ad59611a7ac97103add382780cd03afb9
 #HTTP Server basic handler
 class PyDataAnalysisHandler(BaseHTTPRequestHandler):
 
@@ -119,6 +147,8 @@ class PyDataAnalysisHandler(BaseHTTPRequestHandler):
 			comment = web_form.getvalue("session_comment")
 
 			data = {"session_id":session,"py":version,"comment":comment}
+			with open("data/comment_data.txt",'w') as output
+				json.dump(data,output)
 
 			html_body = "Thanks for playing!"
 		else:
