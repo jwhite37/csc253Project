@@ -3,6 +3,7 @@ import graphlab as gl
 from graphlab import SFrame
 import cgi
 import codediff
+import json
 
 SERVER_PORT = 8080
 
@@ -17,6 +18,9 @@ class PythonTutorSession:
 			sf = gl.load_sframe("data/py3_session_clean")
 
 		self.session = sf.filter_by([int(session_id)],"session_id")
+		self.python_version = version
+		self.session_id = session_id
+		
 
 		if(diff == "Full"):
 			self.diffs = False
@@ -64,7 +68,14 @@ class PythonTutorSession:
 
 	#Return comment form
 	def getComment(self):
-		return "<p>COMMENT FORM!</p>"
+		html = "<p align='center'>Enter in Comments on this Session!</p>"
+		html += "<form action='?' method='POST'>"
+		html += "<input type='hidden' name='python_version' value='" + self.python_version + "'/>"
+		html += "<input type='hidden' name='session_id' value='" + self.session_id + "'/>"
+		html += "<p align='center'><textarea name='session_comment' rows='10' cols='75'></textarea></p>"
+		html += "<p align='center'><input type='submit' name='submit' value='Comment'/></p>"
+
+		return html
 	
 #HTTP Server basic handler
 class PyDataAnalysisHandler(BaseHTTPRequestHandler):
@@ -103,7 +114,15 @@ class PyDataAnalysisHandler(BaseHTTPRequestHandler):
 			html_body += m_session.getComment()
 
 		elif(request == "Comment"):
-			html_body = "RECEIVED: Comment!"
+			session = web_form.getvalue("session_id")
+			version = web_form.getvalue("python_version")
+			comment = web_form.getvalue("session_comment")
+
+			data = {"session_id":session,"py":version,"comment":comment}
+			with open("data/comment_data.txt",'w') as output
+				json.dump(data,output)
+
+			html_body = "Thanks for playing!"
 		else:
 			html_body = "BAD REQUEST!"
 
