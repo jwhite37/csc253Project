@@ -34,7 +34,10 @@ class PythonTutorSession:
 	#Return basic information about the session
 	def getSessionInformation(self):
 		m_session = self.session
-		information = m_session[1]
+		if len(m_session) == 1:
+			information = m_session[0]
+		else:
+			information = m_session[1]
 
 		html = "<h2>Basic Session Information</h2><hr/>"
 
@@ -71,7 +74,16 @@ class PythonTutorSession:
 		m_session = self.session
 		m_session.sort('dt')
 
-		print m_session.column_names()
+		#if there is only one guy
+		if len(m_session) == 1:
+			session = m_session[0]
+			html += "<p align='center'><b>Submission Date:&nbsp;" + str(session['dt']) + "&nbsp;&nbsp;with error:&nbsp;" + str(session['err_msg'])
+			html += codediff.sdiff_lines("",session['user_script'].split('\n'),None,session['dt'],self.diffs,0,3)
+			html += "<p align='center'>"
+			html += "<img style='width:50%;' src='" + self.createImage(self.python_version,session['user_script'],str(self.session_id) + '_image_0') + "'/>"
+			html += "<hr/>"
+			return html
+		#print m_session.column_names()
 
 		prev_row = ""
 
