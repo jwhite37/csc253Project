@@ -6,6 +6,7 @@ import codediff
 import json
 import ast
 import ctree
+import os
 
 SERVER_PORT = 8080
 
@@ -55,12 +56,15 @@ class PythonTutorSession:
             user_script = e['user_script']
             file_name = str(e['session_id']) + '_' + idx
             if e['compile_err'] == 1:
-                return None
+                yield None
             if  py == '2':
                 tree = ast.parse(user_script)
-                ctree.DotManager.dot_ast_to_file(tree, "../data/" + file_name)
+                path = "../data/ast-trees/" + file_name
+                if not os.path.isfile(path):
+                    ctree.DotManager.dot_ast_to_file(tree, path)
+                yield path
             elif py == '3':
-                return None
+                yield None
 
 	#Return the diffs
 	def getDiffs(self):
