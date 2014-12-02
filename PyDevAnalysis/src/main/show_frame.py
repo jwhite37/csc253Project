@@ -14,10 +14,16 @@ import graphlab
 
 def main():
     
-    loaded_frame = graphlab.load_sframe("py2_ready_for_session")
+    loaded_frame = graphlab.load_sframe("py2_session_clean")
 
-    print loaded_frame.column_names()
-    #print loaded_frame['user_script'][1]
+    check = [25]
+    
+    test = loaded_frame.filter_by(check, 'session_id')
+    
+    for e in test:
+        print e
+    
+    
 
 if __name__ == '__main__':
     main()
