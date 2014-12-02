@@ -3,6 +3,8 @@ import graphlab as gl
 from graphlab import SFrame
 import cgi
 import codediff
+import ast
+import ctree
 
 SERVER_PORT = 8080
 
@@ -29,14 +31,32 @@ class PythonTutorSession:
 		information = m_session[1]
 
 		html = "<h2>Basic Session Information</h2><hr/>"
-		
+
 		html += "<p align='center'>"
-		html += "<b>Session ID:</b>&nbsp;" + str(information['session_id']) 
+		html += "<b>Session ID:</b>&nbsp;" + str(information['session_id'])
 		html += "&nbsp;&nbsp;&nbsp;<b>IP Address:</b>&nbsp;" + str(information['ip'])
 		html += "&nbsp;&nbsp;&nbsp;<b>Python:</b>&nbsp;" + str(information['py'])
 		html += "</p><hr/>"
-		
+
 		return html
+
+
+    #Create png file
+    #if file exists return path
+    #otherwise None
+    def getImage(self):
+        m_session = self.session
+        for idx, e in enumerate(m_session):
+            py = e['py']
+            user_script = e['user_script']
+            file_name = str(e['session_id']) + '_' + idx
+            if e['compile_err'] == 1:
+                return None
+            if  py == '2':
+                tree = ast.parse(user_script)
+                ctree.DotManager.dot_ast_to_file(tree, "../data/" + file_name)
+            elif py == '3':
+                return None
 
 	#Return the diffs
 	def getDiffs(self):
@@ -65,7 +85,7 @@ class PythonTutorSession:
 	#Return comment form
 	def getComment(self):
 		return "<p>COMMENT FORM!</p>"
-	
+
 #HTTP Server basic handler
 class PyDataAnalysisHandler(BaseHTTPRequestHandler):
 
