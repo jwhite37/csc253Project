@@ -83,7 +83,7 @@ In addition to improvement on the types of analysis done in the past, the tools 
 Results
 =============
 
-Tools
+GraphLab
 -------------
 
 One great tool we made use of is a product called GraphLab, which can be found at www.graphlab.com. This
