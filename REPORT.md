@@ -46,15 +46,30 @@ Analysis of novice programmer mistakes has many facets to it.
 In addition to the larger problem, the smallers problems are also interseting to look at.
 
 - We can do a review of various tools and database systems that are currently available to do this type of work.
-- There is interesting in exploring Python as a data analysis and web tool.
-- Exploration of best methods for visualizing code.
+- There is interest for us as a team in exploring Python as a data analysis and web tool.
+- Exploration of best methods for visualizing code for an external user.
 - Getting at the statistics of the data as it currently stands gives us insight in how to proceed with the larger project goal, and how much useful information is contained in the submissions.
 
 Limitations of Existing Methods
 =============
 
-What's your new approach to solving the problem
+Before engaging in this project we did a quick review of some literature on the subject, much of it at this point older but still enlightening.
 
+One example that illustrates how some of this research was done in the past is out of the International Journal of Human-Computer Studies `Novice Programmer Errors:Language Constructs and Plan Composition` from 1994. In this study the authors looked at 80 students enrolled in introductory level programming classes split into groups of 20. Each group was enrolled in a different class in 4 different languages (C, Fortran, Pascal, and Lisp).[1] This study looked at two faces of programming:
+
+- Plan Composition - Measuring the understanding of problem solving, such as how two parts of a problem can be composed to solve the whole.
+- Language Constructs - Measuring the understanding of a languages semantics and syntax.
+
+There are some limitations to this approach. 
+
+- For one the small sample size may hide certain trends in programmer errors. 
+- In addition the methods used relied on manual analysis of the code submission and interview of students, which creates a lot of bookkeeping and a large amount of time to do. 
+- Lastly this study focused on only a small number of programming assignments, limiting the variation.
+
+Improvements
+=============
+
+By using the vast amount of Python Tutor data in future analysis we can 
 What are your results so far that show the solution works well
 
 
