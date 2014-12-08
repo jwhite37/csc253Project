@@ -176,5 +176,56 @@ There are a number of interesting uses for having these trees.
 Data Statistics
 -------------
 
+In addition to tools and visualization of the data that we can use further on, we wanted to take a look the data itself to make sure there was actually a decent amount of data to use in further analysis.
+
+- The dataset for the month of July gives us a total of 221,936 submissions.
+- We have 17,180 unique IP addresses, which gives us potentially that many users. In fact we're hoping that after further
+grouping of the submissions based on date range we'll be able to classify even more 'users' from this single month of data.
+- You can see that Python 2 code submissions are much more frequent than Python 3 code submissions, 70% of the submissions
+are Python 2 code, with 30% being Python 3.
+- There are 152,384 unique code segments. Notice how there are an extrodinary number of the first (which is likely one of the frequently used example code segments provided by Python Tutor). This should serve to give us a wide variety of program code to analyze!
+
+We also looked at what types of compile errors are being generated and their frequency. After fixing the data to group certain 'code specific' error messages into one type we found that.
+
+For the Python 2 code submissions:
+
+```
++------------------+--------+----------+
+|       item       | value  | is exact |
++------------------+--------+----------+
+|      Length      | 154897 |   Yes    |
+| # Missing Values |   0    |   Yes    |
+| # unique values  |   35   |    No    |
++------------------+--------+----------+
+
+Most frequent items:
++-------+--------+----------------+-------------------+----------------------------+
+| value |   X2   | invalid syntax | unexpected indent | expected an indented block |
++-------+--------+----------------+-------------------+----------------------------+
+| count | 131500 |     13889      |        2670       |            2142            |
++-------+--------+----------------+-------------------+----------------------------+
++--------------------------------+---------------------------+--------------------------------+
+| unindent does not match an ... | 'return' outside function | EOL while scanning string  ... |
++--------------------------------+---------------------------+--------------------------------+
+|              1841              |            1086           |              517               |
++--------------------------------+---------------------------+--------------------------------+
++-------------------------------+----------------------+--------------------------------+
+| can't assign to function call | 'break' outside loop | encoding declaration in Un ... |
++-------------------------------+----------------------+--------------------------------+
+|              250              |         247          |              183               |
++-------------------------------+----------------------+--------------------------------+
+```
+
+- This gives us 35 unique types of errors being generated users, with `invalid syntax` being the top issue, followed by indendation errors.
+- A rate of error for these submissions of 15.2%, giving us a good chunk of data with errors to do further analysis with.
+- Invalid Syntax errors are an issue to resolve as far as how to further classify or analyze them.
+
+We also went and broke up the entire Python 2 code into sessions, by labeling the Frame above with a new session ID whenever the IP address changed or there was a gap of greater than 30 minutes between each subsequent submission.
+
+- This breaks up the 154,897 submissions into 25,162 separate sessions, giving us a large number of 'users' to look at from this single month.
+- There are many sessions that comprise only 1 or 2 submissions, but there are some sessions that have as many as 60 individual code submissions.
+
 Citations
 -------------
+
+- [1]

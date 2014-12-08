@@ -223,7 +223,37 @@ Most frequent items:
 We also went and broke up the entire Python 2 code into sessions, by labeling the Frame above with a new session ID whenever the IP address changed or there was a gap of greater than 30 minutes between each subsequent submission.
 
 - This breaks up the 154,897 submissions into 25,162 separate sessions, giving us a large number of 'users' to look at from this single month.
-- There are many sessions that comprise only 1 or 2 submissions, but there are some sessions that have as many as 60 individual code submissions.
+
+We can also get at the number of submissions per session by using GraphLabs built in aggregate functions very quickly.
+
++--------------------+---------------+----------+
+|        item        |     value     | is exact |
++--------------------+---------------+----------+
+|       Length       |     25162     |   Yes    |
+|        Min         |      1.0      |   Yes    |
+|        Max         |     252.0     |   Yes    |
+|        Mean        | 6.15598919005 |   Yes    |
+|        Sum         |    154897.0   |   Yes    |
+|      Variance      |  140.68312306 |   Yes    |
+| Standard Deviation | 11.8609916558 |   Yes    |
+|  # Missing Values  |       0       |   Yes    |
+|  # unique values   |      144      |    No    |
++--------------------+---------------+----------+
+
+Most frequent items:
++-------+------+------+------+------+------+-----+-----+-----+-----+-----+
+| value |  1   |  2   |  3   |  4   |  5   |  6  |  7  |  8  |  9  |  10 |
++-------+------+------+------+------+------+-----+-----+-----+-----+-----+
+| count | 9309 | 3907 | 2334 | 1665 | 1154 | 948 | 773 | 601 | 463 | 373 |
++-------+------+------+------+------+------+-----+-----+-----+-----+-----+
+
+Quantiles: 
++-----+-----+-----+-----+-----+-----+------+------+-------+
+|  0% |  1% |  5% | 25% | 50% | 75% | 95%  | 99%  |  100% |
++-----+-----+-----+-----+-----+-----+------+------+-------+
+| 1.0 | 1.0 | 1.0 | 1.0 | 2.0 | 6.0 | 24.0 | 58.0 | 252.0 |
++-----+-----+-----+-----+-----+-----+------+------+-------+
+
 
 Citations
 -------------
