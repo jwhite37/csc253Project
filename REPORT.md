@@ -165,7 +165,7 @@ CTREE
 
 Additionally as part of the web interface we've included the AST built from the code submitted (right now just for those that do actually compile). This was done using the ctree library with some modifications from us[2].
 
-<img src="BlogImages/server_diffs_context.jpg">
+<img src="BlogImages/ctree_view.jpg">
 
 There are a number of interesting uses for having these trees.
 
