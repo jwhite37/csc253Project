@@ -38,9 +38,20 @@ further analysis?
 Why is this interesting?
 =============
 
+Analysis of novice programmer mistakes has many facets to it. 
 
+- A large aspect of this analysis is by loookig at mistakes that are common for programmers we can help direct education and training.
+- We can also look at the usefulness of compile and runtime errors messages in a language and see how often the programmer makes the appropriate correction.
 
-Limitations of the existing way
+In addition to the larger problem, the smallers problems are also interseting to look at.
+
+- We can do a review of various tools and database systems that are currently available to do this type of work.
+- There is interesting in exploring Python as a data analysis and web tool.
+- Exploration of best methods for visualizing code.
+- Getting at the statistics of the data as it currently stands gives us insight in how to proceed with the larger project goal, and how much useful information is contained in the submissions.
+
+Limitations of Existing Methods
+=============
 
 What's your new approach to solving the problem
 
