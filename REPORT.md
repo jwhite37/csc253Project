@@ -131,3 +131,12 @@ Python Web Server
 -------------
 
 The other interesting tool we looked at was using Python as a Web Server for display and 
+
+DiffLib
+-------------
+
+CTREE
+-------------
+
+Data Statistics
+-------------
