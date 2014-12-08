@@ -83,7 +83,7 @@ In addition to improvement on the types of analysis done in the past, the tools 
 Results
 =============
 
-Tools
+GraphLab
 -------------
 
 One great tool we made use of is a product called GraphLab, which can be found at www.graphlab.com. This
@@ -127,5 +127,54 @@ sf.show()
 
 <img src="BlogImages/python_tutor_basic.jpg">
 
+GraphLab gives us several nice things that'll be useful in the future.
+
+- Direct and quick statistical analysis of data, giving us an idea of the most frequent items in a dataset, ranges, and standard deviations.
+- A simple interface with JSON data, so this will be useful for interacting with a database like MongoDB.
+- Many functions are built in (and many not yet explored by us) to build out other 'views' of the data from the original submissions.
+- The Python API allows us to write very clean analysis code and transformations from one data set to another.
+
 Python Web Server
+-------------
+
+The other interesting tool we looked at was using Python as a Web Server for display of sessions and for obtaining feedback from users.
+
+Python comes with a SimpleHTTPServer class, which we made use of to generate a input display, and handle post requests to grab session information from a backend database and display it. Image of the front end shown below.
+
+<img src="BlogImages/main_web_page.jpg">
+
+Being able to display a users session gives us a few options for further collection of data.
+
+- Expert users can look at code, and through Crowd Sourcing we can get at classifications of algorithms, programming problems, and other information useful to analysis without having to take on a ton of 'hired help'.
+- This can help us to clean up sessions, since our method of session splitting has shown to group some sessions that contain very different code (such as those through a gateway IP address).
+
+DiffLib
+-------------
+
+In the web interface we've included view of the Diffs between each submission in a session. 
+
+<img src="BlogImages/server_diffs_context.jpg">
+
+This allows a user to visually pickout changes between each submission the user makes.
+
+- Can easily see if there are a large number of changes indicating a 'poor' session split.
+- Can be useful in further analysis to see how a user 'responded' to a particular error message.
+
+CTREE
+-------------
+
+Additionally as part of the web interface we've included the AST built from the code submitted (right now just for those that do actually compile). This was done using the ctree library with some modifications from us[2].
+
+<img src="BlogImages/server_diffs_context.jpg">
+
+There are a number of interesting uses for having these trees.
+
+- They can be used in helping people understand how a program corresponds to the constructed tree. With how much data is available there are many different flavors or program construction and generated trees to choose from.
+- It would be interesting here to develop a way to highlight the 'diffs' of the trees as the user progresses, to better highlight changes and understanding of those changes.
+- One possibility as the study progresses would be to use the tree edit distance as a method to 'cluster' sessions together, giving us groups of sessions that share similar structure to use in comparison.
+
+Data Statistics
+-------------
+
+Citations
 -------------
