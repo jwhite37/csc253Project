@@ -1,1 +1,1 @@
-{"comment": "TESTING THIS THING", "py": "2", "session_id": "34"}
+{"comment": "<IMG SRC=javascript:alert('XSS')>", "py": "2", "session_id": "123"}
