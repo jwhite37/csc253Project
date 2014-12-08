@@ -223,7 +223,7 @@ We also went and broke up the entire Python 2 code into sessions, by labeling th
 - This breaks up the 154,897 submissions into 25,162 separate sessions, giving us a large number of 'users' to look at from this single month.
 
 We can also get at the number of submissions per session by using GraphLabs built in aggregate functions very quickly.
-
+```
 +--------------------+---------------+----------+
 |        item        |     value     | is exact |
 +--------------------+---------------+----------+
@@ -251,7 +251,7 @@ Quantiles:
 +-----+-----+-----+-----+-----+-----+------+------+-------+
 | 1.0 | 1.0 | 1.0 | 1.0 | 2.0 | 6.0 | 24.0 | 58.0 | 252.0 |
 +-----+-----+-----+-----+-----+-----+------+------+-------+
-
+```
 
 Citations
 -------------
