@@ -5,7 +5,7 @@ Python Tutor is a free web based tool created by Phillip Guo located here http:/
 
 The interesting part that we'll be looking at in this project is the fact that this program stores the code a user executes, allowing us at the backend to do some analysis of the code users submit.
 
-For instance each submission to the site is timestamped and ipaddress logged, allowing us to view a history of each users code submissions. For this project we'll have access to JSON encoded records of the information provided to the site.
+Each submission to the site is timestamped and ipaddress logged, allowing us to view a history of each users code submissions. For this project we'll have access to JSON encoded records of the information provided to the site.
 
 Python tutor submissions are stored in JSON format, one example of this is below.
 
@@ -23,15 +23,14 @@ JSON Sample
 Problem Statement
 =============
 
-The Nature and Scale of the Python Tutor Data gives us many potential problems to look at. Since we have so much data from so many different users there are many problems that can be looked at.
+The varied nature and large scale of the Python Tutor submission data gives us many potential problems to look at.
 
 - One problem we can approach is to use this data to get at an analysis of programmer mistakes made by novice programers. Can we see interesting or frequent mistakes that new programmers make when writing Python code?
 
 Getting at a solution to the above problem is an extensive task, quite a bit larger than the scope of this courses project. However in the spirit of that overall goal we identified several smaller problems we can get a handle on in the time we had that will help in furthering that goal.
 
 - What type of data model or storage system works well for further analysis of the data?
-- Is there a good way to visualize the data, in such a way where we can ask for further 'expert' input into the data for use in
-further analysis?
+- Is there a good way to visualize the data, in such a way where we can ask for further 'expert' input into the data for use in further analysis?
 - How to best separate the submissions into a 'session' so we can identify a specific 'user' in analysis of the data.
 - What are the basic statistics of the data, how many error types are there, how many 'sessions' can we see in a typical month of submissions?
 
@@ -40,10 +39,10 @@ Why is this interesting?
 
 Analysis of novice programmer mistakes has many facets to it. 
 
-- A large aspect of this analysis is by loookig at mistakes that are common for programmers we can help direct education and training.
-- We can also look at the usefulness of compile and runtime errors messages in a language and see how often the programmer makes the appropriate correction.
+- An overall goal of this analysis is that by looking at mistakes that are common for programmers we can help direct education and training.
+- We can also look at the usefulness of compile and runtime errors messages in a language and see how often the programmer makes the appropriate correction. This can lead to potentially more informative errors messages (for instance 'invalid syntax' error messages can be expanded upon to direct the user to the problem).
 
-In addition to the larger problem, the smallers problems are also interseting to look at.
+In addition to the larger problem, the smaller problems are also interseting to look at.
 
 - We can do a review of various tools and database systems that are currently available to do this type of work.
 - There is interest for us as a team in exploring Python as a data analysis and web tool.
@@ -64,7 +63,7 @@ There are some limitations to this approach.
 
 - For one the small sample size may hide certain trends in programmer errors. 
 - In addition the methods used relied on manual analysis of the code submission and interview of students, which creates a lot of bookkeeping and a large amount of time to do. 
-- Lastly this study focused on only a small number of programming assignments, limiting the variation.
+- Lastly this study focused on only a small number of programming assignments, limiting the variation in programming styles.
 
 Improvements
 =============
@@ -73,12 +72,13 @@ By using the vast amount of Python Tutor data and 'Big Data Analysis' in the fut
 
 - Since Python Tutor is available for fee for anybody to use, we have access not only to enrolled college students, but the general public.
 - Python Tutor places no restriction on the type of problem, so we have quite a bit of variation in algorithms people are attempting to learn about.
-- The large amount of data has the potential to allow us to reveal interesting edge cases not otherwise seen in a smaller sample.
+- The large amount of data has the potential to allow us to reveal interesting edge cases not otherwise seen in a smaller samples.
 
 In addition to improvement on the types of analysis done in the past, the tools we've worked with for this part of the project allow us to make several improvements.
 
 - GraphLab gives us a very powerful open source tool for doing quick data analysis.
-- Using Python for a web server and opening up the vast amount of data allows us to get responses from multiple code reviewers, giving us a much larger 'audience' to do the review, without having to hire on a lot of staff to do analysis of the sessions.
+- Setting up a database and using GraphLab in conjunction can allow us to automate much of the analysis, especially if combined with AST and Diff analysis.
+- Using Python for a web server and opening up the vast amount of data allows us to get responses from multiple code reviewers, giving us a much larger 'audience' to do the review, without having to recruit directly on a lot of people to do analysis of the sessions.
 
 Results
 =============
@@ -185,9 +185,7 @@ grouping of the submissions based on date range we'll be able to classify even m
 are Python 2 code, with 30% being Python 3.
 - There are 152,384 unique code segments. Notice how there are an extrodinary number of the first (which is likely one of the frequently used example code segments provided by Python Tutor). This should serve to give us a wide variety of program code to analyze!
 
-We also looked at what types of compile errors are being generated and their frequency. After fixing the data to group certain 'code specific' error messages into one type we found that.
-
-For the Python 2 code submissions:
+We also looked at what types of compile errors are being generated and their frequency. After fixing the data to group certain 'code specific' error messages we were able to determine the following for the Python 2 code submissions:
 
 ```
 +------------------+--------+----------+
