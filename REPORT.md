@@ -228,4 +228,7 @@ We also went and broke up the entire Python 2 code into sessions, by labeling th
 Citations
 -------------
 
-- [1]
+- [1] Alireza Ebrahimi, Novice programmer errors: language constructs and plan composition, International Journal of Human-Computer Studies, Volume 41, Issue 4, October 1994, Pages 457-480, ISSN 1071-5819, http://dx.doi.org/10.1006/ijhc.1994.1069.
+(http://www.sciencedirect.com/science/article/pii/S107158198471069X)
+
+- [2] U.C. Berkeley SEJITS (https://github.com/ucb-sejits/ctree)
