@@ -83,6 +83,51 @@ In addition to improvement on the types of analysis done in the past, the tools 
 Results
 =============
 
+Tools
+-------------
 
+One great tool we made use of is a product called GraphLab, which can be found at www.graphlab.com. This
+software package has a very clean Python API, and can read data directly from JSON. This gave us a very clean, and quick
+way to get right to doing analysis on the data.
 
+As you can see below the Python API already built in gives us a clean way to load data, do analysis, and store it.
 
+``` python
+def main():
+    with open('../../Data/data_file_modified.txt') as data:
+        sf = SFrame()
+        
+	dt = [] # Each column gets created as a list.
+	.
+	.
+	.
+        for i, line in enumerate(data):
+            jo = json.loads(line) # Load in the JSON.
+            dt += jo['dt']	  # Add in each element for this record to our lists.
+	.
+	.
+	.
+	# Create the columns for the frame and then store it.
+        sf = sf.add_column(SArray(id), name='id')
+        sf.add_column(SArray(dt), name='dt')
+        sf.add_column(SArray(ip), name='ip')
+        sf.add_column(SArray(py, dtype=str), name='py')
+        sf.add_column(SArray(script), name='user_script')
+
+        sf.save('python_tutor')
+```
+
+Once saved, a frame can be viewed in a very nice web format and looked at. Examples of this are below.
+
+``` python
+import graphlab
+sf = graphlab.load_sframe("python_tutor")
+sf.show()
+```
+
+<img src="BlogImages/python_tutor_basic.jpg">
+
+Python Web Server
+-------------
+
+The other interesting tool we looked at was using Python as a Web Server for display and 
