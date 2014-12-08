@@ -132,6 +132,7 @@ GraphLab gives us several nice things that'll be useful in the future.
 - Direct and quick statistical analysis of data, giving us an idea of the most frequent items in a dataset, ranges, standard deviations.
 - A simple interface with JSON data, so this will be useful for interacting with a database like MongoDB.
 - Many functions are built in (and many not yet explored by us) to build out other 'views' of the data from the original submissions.
+- The Python API allows us to write very clean analysis code.
 
 Python Web Server
 -------------
