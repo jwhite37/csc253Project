@@ -55,7 +55,7 @@ Limitations of Existing Methods
 
 Before engaging in this project we did a quick review of some literature on the subject, much of it at this point older but still enlightening.
 
-One example that illustrates how some of this research was done in the past is out of the International Journal of Human-Computer Studies `Novice Programmer Errors:Language Constructs and Plan Composition` from 1994. In this study the authors looked at 80 students enrolled in introductory level programming classes split into groups of 20. Each group was enrolled in a different class in 4 different languages (C, Fortran, Pascal, and Lisp).[1] This study looked at two faces of programming:
+One example that illustrates how some of this research was done in the past is out of the International Journal of Human-Computer Studies `Novice Programmer Errors:Language Constructs and Plan Composition` from 1994. In this study the authors looked at 80 students enrolled in introductory level programming classes split into groups of 20. Each group was enrolled in a different class in 4 different languages (C, Fortran, Pascal, and Lisp).[1] This study looked at two facets of novice programming errors:
 
 - Plan Composition - Measuring the understanding of problem solving, such as how two parts of a problem can be composed to solve the whole.
 - Language Constructs - Measuring the understanding of a languages semantics and syntax.
@@ -69,7 +69,20 @@ There are some limitations to this approach.
 Improvements
 =============
 
-By using the vast amount of Python Tutor data in future analysis we can 
-What are your results so far that show the solution works well
+By using the vast amount of Python Tutor data and 'Big Data Analysis' in the future we can make several improvements to analysis of this type.
+
+- Since Python Tutor is available for fee for anybody to use, we have access not only to enrolled college students, but the general public.
+- Python Tutor places no restriction on the type of problem, so we have quite a bit of variation in algorithms people are attempting to learn about.
+- The large amount of data has the potential to allow us to reveal interesting edge cases not otherwise seen in a smaller sample.
+
+In addition to improvement on the types of analysis done in the past, the tools we've worked with for this part of the project allow us to make several improvements.
+
+- GraphLab gives us a very powerful open source tool for doing quick data analysis.
+- Using Python for a web server and opening up the vast amount of data allows us to get responses from multiple code reviewers, giving us a much larger 'audience' to do the review, without having to hire on a lot of staff to do analysis of the sessions.
+
+Results
+=============
+
+
 
 

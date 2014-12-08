@@ -55,12 +55,26 @@ Limitations of Existing Methods
 
 Before engaging in this project we did a quick review of some literature on the subject, much of it at this point older but still enlightening.
 
-One example that illustrates how some of this research was done in the past is out of the International Journal of Human-Computer Studies `Novice Programmer Errors:Language Constructs and Plan Composition` from 1994. In this study the authors looked at 80 students enrolled in introductory level programming classes split into groups of 20. Each group was enrolled in a different class in 4 different languages (C, Fortran, Pascal, and Lisp).[1] This study looked at two faces of programming:
+One example that illustrates how some of this research was done in the past is out of the International Journal of Human-Computer Studies `Novice Programmer Errors:Language Constructs and Plan Composition` from 1994. In this study the authors looked at 80 students enrolled in introductory level programming classes split into groups of 20. Each group was enrolled in a different class in 4 different languages (C, Fortran, Pascal, and Lisp).[1] This study looked at two facets of novice programming errors:
 
 - Plan Composition - Measuring the understanding of problem solving, such as how two parts of a problem can be composed to solve the whole.
 - Language Constructs - Measuring the understanding of a languages semantics and syntax.
 
-What's your new approach to solving the problem
+There are some limitations to this approach. 
+
+- For one the small sample size may hide certain trends in programmer errors. 
+- In addition the methods used relied on manual analysis of the code submission and interview of students, which creates a lot of bookkeeping and a large amount of time to do. 
+- Lastly this study focused on only a small number of programming assignments, limiting the variation.
+
+Improvements
+=============
+
+By using the vast amount of Python Tutor data and 'Big Data Analysis' in the future we can make several improvements to analysis of this type.
+
+- Since Python Tutor is available for fee for anybody to use, we have access not only to enrolled college students, but the general public.
+- Python Tutor places no restriction on the type of problem, so we have quite a bit of variation in algorithms people are attempting to learn about.
+- 
+
 
 What are your results so far that show the solution works well
 
