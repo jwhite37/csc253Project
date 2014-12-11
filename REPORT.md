@@ -1,15 +1,13 @@
-Python Tutor Data Analysis Project
+Understand novice programmers' behaviors from their source codes
 =============
 
-Python Tutor is a free web based tool created by Phillip Guo located here http://pythontutor.com/. This tool allows a Python Programmer to obtain a visualization of their Python code, and the ability to step through each line to view Python's internal object structure as the code is executed.
-
-The interesting part that we'll be looking at in this project is the fact that this program stores the code a user executes, allowing us at the backend to do some analysis of the code users submit.
+[Python Tutor](http://pythontutor.com/. This tool) is a free web based tool created by Phillip Guo which allows a Python Programmer to obtain a visualization of their Python code, and the ability to step through each line to view Python's internal object structure as the code is executed.The backend of this site saves the all the code snippets users submit, permitting chance for analysis.
 
 Each submission to the site is timestamped and ipaddress logged, allowing us to view a history of each users code submissions. For this project we'll have access to JSON encoded records of the information provided to the site.
 
 Python tutor submissions are stored in JSON format, one example of this is below.
 
-```
+```javascript
 JSON Sample
 {
 	"ip": "75.147.182.5", 
@@ -19,28 +17,21 @@ JSON Sample
 }
 ```
 
+#Strategy 
 
-Problem Statement
-=============
-
-The varied nature and large scale of the Python Tutor submission data gives us many potential problems to look at.
-
-- One problem we can approach is to use this data to get at an analysis of programmer mistakes made by novice programers. Can we see interesting or frequent mistakes that new programmers make when writing Python code?
-
-Getting at a solution to the above problem is an extensive task, quite a bit larger than the scope of this courses project. However in the spirit of that overall goal we identified several smaller problems we can get a handle on in the time we had that will help in furthering that goal.
+Our goal is to understand common mistakes novice programmers make, which can be further decomposed into smaller(hopefully easier) problems. 
 
 - What type of data model or storage system works well for further analysis of the data?
 - Is there a good way to visualize the data, in such a way where we can ask for further 'expert' input into the data for use in further analysis?
 - How to best separate the submissions into a 'session' so we can identify a specific 'user' in analysis of the data.
 - What are the basic statistics of the data, how many error types are there, how many 'sessions' can we see in a typical month of submissions?
 
-Why is this interesting?
-=============
+#Interesting how?
 
 Analysis of novice programmer mistakes has many facets to it. 
 
-- An overall goal of this analysis is that by looking at mistakes that are common for programmers we can help direct education and training.
-- We can also look at the usefulness of compile and runtime errors messages in a language and see how often the programmer makes the appropriate correction. This can lead to potentially more informative errors messages (for instance 'invalid syntax' error messages can be expanded upon to direct the user to the problem).
+- Looking at mistakes that are common for programmers helps direct education and training.
+- Looking at the usefulness of compile and runtime errors messages in a language and see how often the programmer makes the appropriate correction can help construct more informative errors messages (for instance 'invalid syntax' error messages can be expanded upon to direct the user to the problem).
 
 In addition to the larger problem, the smaller problems are also interseting to look at.
 
@@ -49,8 +40,8 @@ In addition to the larger problem, the smaller problems are also interseting to 
 - Exploration of best methods for visualizing code for an external user.
 - Getting at the statistics of the data as it currently stands gives us insight in how to proceed with the larger project goal, and how much useful information is contained in the submissions.
 
-Limitations of Existing Methods
-=============
+#Limitations of Existing Methods
+
 
 Before engaging in this project we did a quick review of some literature on the subject, much of it at this point older but still enlightening.
 
