@@ -18,6 +18,7 @@ JSON Sample
 	"user_script": "def odd(x):\n  \n   x%2 != 0\n   return True\n   else\n   return False\n\nodd(10)"
 }
 ```
+The input is a very large number of the above organized in a table, each row is one sample.
 
 #Interesting how?
 Our goal is to understand common mistakes novice programmers make, which can be further decomposed into smaller(hopefully easier) problems. 
@@ -40,46 +41,8 @@ Also, while implementing the solution to this problem,
 - Getting at the statistics of the data as it currently stands gives us insight in how to proceed with the larger project goal, and how much useful information is contained in the submissions.
 
 #Implementation Detail
-
-
-
-
-#Limitations of Existing Methods
-
-
-Before engaging in this project we did a quick review of some literature on the subject, much of it at this point older but still enlightening.
-
-One example that illustrates how some of this research was done in the past is out of the International Journal of Human-Computer Studies `Novice Programmer Errors:Language Constructs and Plan Composition` from 1994. In this study the authors looked at 80 students enrolled in introductory level programming classes split into groups of 20. Each group was enrolled in a different class in 4 different languages (C, Fortran, Pascal, and Lisp).[1] This study looked at two facets of novice programming errors:
-
-- Plan Composition - Measuring the understanding of problem solving, such as how two parts of a problem can be composed to solve the whole.
-- Language Constructs - Measuring the understanding of a languages semantics and syntax.
-
-There are some limitations to this approach. 
-
-- For one the small sample size may hide certain trends in programmer errors. 
-- In addition the methods used relied on manual analysis of the code submission and interview of students, which creates a lot of bookkeeping and a large amount of time to do. 
-- Lastly this study focused on only a small number of programming assignments, limiting the variation in programming styles.
-
-Improvements
-=============
-
-By using the vast amount of Python Tutor data and 'Big Data Analysis' in the future we can make several improvements to analysis of this type.
-
-- Since Python Tutor is available for fee for anybody to use, we have access not only to enrolled college students, but the general public.
-- Python Tutor places no restriction on the type of problem, so we have quite a bit of variation in algorithms people are attempting to learn about.
-- The large amount of data has the potential to allow us to reveal interesting edge cases not otherwise seen in a smaller samples.
-
-In addition to improvement on the types of analysis done in the past, the tools we've worked with for this part of the project allow us to make several improvements.
-
-- GraphLab gives us a very powerful open source tool for doing quick data analysis.
-- Setting up a database and using GraphLab in conjunction can allow us to automate much of the analysis, especially if combined with AST and Diff analysis.
-- Using Python for a web server and opening up the vast amount of data allows us to get responses from multiple code reviewers, giving us a much larger 'audience' to do the review, without having to recruit directly on a lot of people to do analysis of the sessions.
-
-Results
-=============
-
-GraphLab
--------------
+To store and visualize the data we decide to use [Graphlab](http://graphlab.com/). 
+##GraphLab
 
 One great tool we made use of is a product called GraphLab, which can be found at www.graphlab.com. This
 software package has a very clean Python API, and can read data directly from JSON. This gave us a very clean, and quick
@@ -129,20 +92,11 @@ GraphLab gives us several nice things that'll be useful in the future.
 - Many functions are built in (and many not yet explored by us) to build out other 'views' of the data from the original submissions.
 - The Python API allows us to write very clean analysis code and transformations from one data set to another.
 
-Python Web Server
--------------
 
-The other interesting tool we looked at was using Python as a Web Server for display of sessions and for obtaining feedback from users.
 
-Python comes with a SimpleHTTPServer class, which we made use of to generate a input display, and handle post requests to grab session information from a backend database and display it. Image of the front end shown below.
+To get session, we decide to use Google's metric which is to use half an hour as the threshhold. 
 
-<img src="BlogImages/main_web_page.jpg">
-
-Being able to display a users session gives us a few options for further collection of data.
-
-- Expert users can look at code, and through Crowd Sourcing we can get at classifications of algorithms, programming problems, and other information useful to analysis without having to take on a ton of 'hired help'.
-- This can help us to clean up sessions, since our method of session splitting has shown to group some sessions that contain very different code (such as those through a gateway IP address).
-
+To present our analitical result we decided to use difflib and ctree package
 DiffLib
 -------------
 
@@ -168,8 +122,25 @@ There are a number of interesting uses for having these trees.
 - It would be interesting here to develop a way to highlight the 'diffs' of the trees as the user progresses, to better highlight changes and understanding of those changes.
 - One possibility as the study progresses would be to use the tree edit distance as a method to 'cluster' sessions together, giving us groups of sessions that share similar structure to use in comparison.
 
-Data Statistics
--------------
+
+##Python Web Server
+
+The other interesting tool we looked at was using Python as a Web Server for display of sessions and for obtaining feedback from users.
+
+Python comes with a SimpleHTTPServer class, which we made use of to generate a input display, and handle post requests to grab session information from a backend database and display it. Image of the front end shown below.
+
+<img src="BlogImages/main_web_page.jpg">
+
+Being able to display a users session gives us a few options for further collection of data.
+
+- Expert users can look at code, and through Crowd Sourcing we can get at classifications of algorithms, programming problems, and other information useful to analysis without having to take on a ton of 'hired help'.
+- This can help us to clean up sessions, since our method of session splitting has shown to group some sessions that contain very different code (such as those through a gateway IP address).
+
+
+
+
+#Results
+##Data Statistics
 
 In addition to tools and visualization of the data that we can use further on, we wanted to take a look the data itself to make sure there was actually a decent amount of data to use in further analysis.
 
@@ -248,8 +219,37 @@ Quantiles:
 +-----+-----+-----+-----+-----+-----+------+------+-------+
 ```
 
-Citations
--------------
+#Limitations of Existing Methods
+
+Before engaging in this project we did a quick review of some literature on the subject, much of it at this point older but still enlightening.
+
+One example that illustrates how some of this research was done in the past is out of the International Journal of Human-Computer Studies `Novice Programmer Errors:Language Constructs and Plan Composition` from 1994. In this study the authors looked at 80 students enrolled in introductory level programming classes split into groups of 20. Each group was enrolled in a different class in 4 different languages (C, Fortran, Pascal, and Lisp).[1] This study looked at two facets of novice programming errors:
+
+- Plan Composition - Measuring the understanding of problem solving, such as how two parts of a problem can be composed to solve the whole.
+- Language Constructs - Measuring the understanding of a languages semantics and syntax.
+
+There are some limitations to this approach. 
+
+- For one the small sample size may hide certain trends in programmer errors. 
+- In addition the methods used relied on manual analysis of the code submission and interview of students, which creates a lot of bookkeeping and a large amount of time to do. 
+- Lastly this study focused on only a small number of programming assignments, limiting the variation in programming styles.
+
+#Improvements
+
+By using the vast amount of Python Tutor data and 'Big Data Analysis' in the future we can make several improvements to analysis of this type.
+
+- Since Python Tutor is available for fee for anybody to use, we have access not only to enrolled college students, but the general public.
+- Python Tutor places no restriction on the type of problem, so we have quite a bit of variation in algorithms people are attempting to learn about.
+- The large amount of data has the potential to allow us to reveal interesting edge cases not otherwise seen in a smaller samples.
+
+In addition to improvement on the types of analysis done in the past, the tools we've worked with for this part of the project allow us to make several improvements.
+
+- GraphLab gives us a very powerful open source tool for doing quick data analysis.
+- Setting up a database and using GraphLab in conjunction can allow us to automate much of the analysis, especially if combined with AST and Diff analysis.
+- Using Python for a web server and opening up the vast amount of data allows us to get responses from multiple code reviewers, giving us a much larger 'audience' to do the review, without having to recruit directly on a lot of people to do analysis of the sessions.
+
+
+#Citations
 
 - [1] Alireza Ebrahimi, Novice programmer errors: language constructs and plan composition, International Journal of Human-Computer Studies, Volume 41, Issue 4, October 1994, Pages 457-480, ISSN 1071-5819, http://dx.doi.org/10.1006/ijhc.1994.1069.
 (http://www.sciencedirect.com/science/article/pii/S107158198471069X)
