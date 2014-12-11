@@ -3,6 +3,8 @@ Understand novice programmers' behaviors from their source codes
 
 [Python Tutor](http://pythontutor.com/. This tool) is a free web based tool created by Phillip Guo which allows a Python Programmer to obtain a visualization of their Python code, and the ability to step through each line to view Python's internal object structure as the code is executed.The backend of this site saves the all the code snippets users submit, permitting chance for analysis.
 
+Our goal is to understand common mistakes novice programmers make.
+
 Each submission to the site is timestamped and ipaddress logged, allowing us to view a history of each users code submissions. For this project we'll have access to JSON encoded records of the information provided to the site.
 
 Python tutor submissions are stored in JSON format, one example of this is below.
@@ -17,8 +19,7 @@ JSON Sample
 }
 ```
 
-#Strategy 
-
+#Interesting how?
 Our goal is to understand common mistakes novice programmers make, which can be further decomposed into smaller(hopefully easier) problems. 
 
 - What type of data model or storage system works well for further analysis of the data?
@@ -26,19 +27,22 @@ Our goal is to understand common mistakes novice programmers make, which can be 
 - How to best separate the submissions into a 'session' so we can identify a specific 'user' in analysis of the data.
 - What are the basic statistics of the data, how many error types are there, how many 'sessions' can we see in a typical month of submissions?
 
-#Interesting how?
+So why do we want to know the frequent mistakes made by novice programmers?
 
-Analysis of novice programmer mistakes has many facets to it. 
-
+There are two major reasons:
 - Looking at mistakes that are common for programmers helps direct education and training.
 - Looking at the usefulness of compile and runtime errors messages in a language and see how often the programmer makes the appropriate correction can help construct more informative errors messages (for instance 'invalid syntax' error messages can be expanded upon to direct the user to the problem).
 
-In addition to the larger problem, the smaller problems are also interseting to look at.
-
+Also, while implementing the solution to this problem,
 - We can do a review of various tools and database systems that are currently available to do this type of work.
 - There is interest for us as a team in exploring Python as a data analysis and web tool.
 - Exploration of best methods for visualizing code for an external user.
 - Getting at the statistics of the data as it currently stands gives us insight in how to proceed with the larger project goal, and how much useful information is contained in the submissions.
+
+#Implementation Detail
+
+
+
 
 #Limitations of Existing Methods
 
