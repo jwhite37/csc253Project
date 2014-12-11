@@ -20,7 +20,7 @@ JSON Sample
 ```
 The input is a very large number of the above organized in a table, each row is one sample.
 
-#Interesting how?
+##Interesting how?
 Our goal is to understand common mistakes novice programmers make, which can be further decomposed into smaller(hopefully easier) problems. 
 
 - What type of data model or storage system works well for further analysis of the data?
@@ -40,9 +40,9 @@ Also, while implementing the solution to this problem,
 - Exploration of best methods for visualizing code for an external user.
 - Getting at the statistics of the data as it currently stands gives us insight in how to proceed with the larger project goal, and how much useful information is contained in the submissions.
 
-#Implementation Detail
+##Implementation Detail
 To store and visualize the data we decide to use [Graphlab](http://graphlab.com/). 
-##GraphLab
+###GraphLab
 
 One great tool we made use of is a product called GraphLab, which can be found at www.graphlab.com. This
 software package has a very clean Python API, and can read data directly from JSON. This gave us a very clean, and quick
@@ -97,8 +97,8 @@ GraphLab gives us several nice things that'll be useful in the future.
 To get session, we decide to use Google's metric which is to use half an hour as the threshhold. 
 
 To present our analitical result we decided to use difflib and ctree package
-DiffLib
--------------
+###DiffLib
+
 
 In the web interface we've included view of the Diffs between each submission in a session. 
 
@@ -109,8 +109,8 @@ This allows a user to visually pickout changes between each submission the user 
 - Can easily see if there are a large number of changes indicating a 'poor' session split.
 - Can be useful in further analysis to see how a user 'responded' to a particular error message.
 
-CTREE
--------------
+###CTREE
+
 
 Additionally as part of the web interface we've included the AST built from the code submitted (right now just for those that do actually compile). This was done using the ctree library with some modifications from us[2].
 
@@ -123,7 +123,7 @@ There are a number of interesting uses for having these trees.
 - One possibility as the study progresses would be to use the tree edit distance as a method to 'cluster' sessions together, giving us groups of sessions that share similar structure to use in comparison.
 
 
-##Python Web Server
+###Python Web Server
 
 The other interesting tool we looked at was using Python as a Web Server for display of sessions and for obtaining feedback from users.
 
@@ -139,8 +139,8 @@ Being able to display a users session gives us a few options for further collect
 
 
 
-#Results
-##Data Statistics
+##Results
+###Data Statistics
 
 In addition to tools and visualization of the data that we can use further on, we wanted to take a look the data itself to make sure there was actually a decent amount of data to use in further analysis.
 
@@ -219,7 +219,7 @@ Quantiles:
 +-----+-----+-----+-----+-----+-----+------+------+-------+
 ```
 
-#Limitations of Existing Methods
+##Limitations of Existing Methods
 
 Before engaging in this project we did a quick review of some literature on the subject, much of it at this point older but still enlightening.
 
@@ -234,7 +234,7 @@ There are some limitations to this approach.
 - In addition the methods used relied on manual analysis of the code submission and interview of students, which creates a lot of bookkeeping and a large amount of time to do. 
 - Lastly this study focused on only a small number of programming assignments, limiting the variation in programming styles.
 
-#Improvements
+##Improvements
 
 By using the vast amount of Python Tutor data and 'Big Data Analysis' in the future we can make several improvements to analysis of this type.
 
@@ -249,7 +249,7 @@ In addition to improvement on the types of analysis done in the past, the tools 
 - Using Python for a web server and opening up the vast amount of data allows us to get responses from multiple code reviewers, giving us a much larger 'audience' to do the review, without having to recruit directly on a lot of people to do analysis of the sessions.
 
 
-#Citations
+##Citations
 
 - [1] Alireza Ebrahimi, Novice programmer errors: language constructs and plan composition, International Journal of Human-Computer Studies, Volume 41, Issue 4, October 1994, Pages 457-480, ISSN 1071-5819, http://dx.doi.org/10.1006/ijhc.1994.1069.
 (http://www.sciencedirect.com/science/article/pii/S107158198471069X)
