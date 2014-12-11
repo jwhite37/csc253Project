@@ -1,4 +1,4 @@
-Understand novice programmers' behaviors from their source codes
+What are the mistakes novice programmers commonly make and how to help them?
 =============
 
 [Python Tutor](http://pythontutor.com/. This tool) is a free web based tool created by Phillip Guo which allows a Python Programmer to obtain a visualization of their Python code, and the ability to step through each line to view Python's internal object structure as the code is executed.The backend of this site saves the all the code snippets users submit, permitting chance for analysis.
