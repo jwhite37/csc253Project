@@ -41,12 +41,11 @@ Also, while implementing the solution to this problem,
 - Getting at the statistics of the data as it currently stands gives us insight in how to proceed with the larger project goal, and how much useful information is contained in the submissions.
 
 ##Implementation Detail
-To store and visualize the data we decide to use [Graphlab](http://graphlab.com/). 
-###GraphLab
+As is stated above, our approach to achieve the goal has three key steps, model the data at hand, perform data analyzation on the model, present the result.
 
-One great tool we made use of is a product called GraphLab, which can be found at www.graphlab.com. This
-software package has a very clean Python API, and can read data directly from JSON. This gave us a very clean, and quick
-way to get right to doing analysis on the data.
+###Data Model
+To model the data at hand, we utilize [Graphlab](http://graphlab.com/). 
+This software package has a very clean Python API, and can read data directly from JSON. This gave us a very clean, and quick way to get right to doing analysis on the data.
 
 As you can see below the Python API already built in gives us a clean way to load data, do analysis, and store it.
 
@@ -92,13 +91,12 @@ GraphLab gives us several nice things that'll be useful in the future.
 - Many functions are built in (and many not yet explored by us) to build out other 'views' of the data from the original submissions.
 - The Python API allows us to write very clean analysis code and transformations from one data set to another.
 
+###Data Analysis
+We organized our data into sessions, each session is a bunch of submissions that are no further than half an hour apart.
 
+The first step to understand difference is to see it, so we utilize difflib and ctree to show changes in code over submitions. 
 
-To get session, we decide to use Google's metric which is to use half an hour as the threshhold. 
-
-To present our analitical result we decided to use difflib and ctree package
-###DiffLib
-
+####DiffLib
 
 In the web interface we've included view of the Diffs between each submission in a session. 
 
@@ -109,8 +107,7 @@ This allows a user to visually pickout changes between each submission the user 
 - Can easily see if there are a large number of changes indicating a 'poor' session split.
 - Can be useful in further analysis to see how a user 'responded' to a particular error message.
 
-###CTREE
-
+####CTREE
 
 Additionally as part of the web interface we've included the AST built from the code submitted (right now just for those that do actually compile). This was done using the ctree library with some modifications from us[2].
 
@@ -123,7 +120,7 @@ There are a number of interesting uses for having these trees.
 - One possibility as the study progresses would be to use the tree edit distance as a method to 'cluster' sessions together, giving us groups of sessions that share similar structure to use in comparison.
 
 
-###Python Web Server
+###Analysis Depolyment
 
 The other interesting tool we looked at was using Python as a Web Server for display of sessions and for obtaining feedback from users.
 
@@ -135,8 +132,6 @@ Being able to display a users session gives us a few options for further collect
 
 - Expert users can look at code, and through Crowd Sourcing we can get at classifications of algorithms, programming problems, and other information useful to analysis without having to take on a ton of 'hired help'.
 - This can help us to clean up sessions, since our method of session splitting has shown to group some sessions that contain very different code (such as those through a gateway IP address).
-
-
 
 
 ##Results
