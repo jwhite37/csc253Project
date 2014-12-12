@@ -214,6 +214,63 @@ Quantiles:
 +-----+-----+-----+-----+-----+-----+------+------+-------+
 ```
 
+We can get at the number of errors per submission also using aggregate functions.
+
+```
++--------------------+----------------+----------+
+|        item        |     value      | is exact |
++--------------------+----------------+----------+
+|       Length       |     25162      |   Yes    |
+|        Min         |      0.0       |   Yes    |
+|        Max         |     126.0      |   Yes    |
+|        Mean        | 0.929854542564 |   Yes    |
+|        Sum         |    23397.0     |   Yes    |
+|      Variance      | 10.5520703151  |   Yes    |
+| Standard Deviation | 3.24839503679  |   Yes    |
+|  # Missing Values  |       0        |   Yes    |
+|  # unique values   |       55       |    No    |
++--------------------+----------------+----------+
+
+Most frequent items:
++-------+-------+------+------+-----+-----+-----+-----+-----+-----+----+
+| value |   0   |  1   |  2   |  3  |  4  |  5  |  6  |  7  |  8  | 9  |
++-------+-------+------+------+-----+-----+-----+-----+-----+-----+----+
+| count | 18834 | 2635 | 1175 | 715 | 449 | 264 | 217 | 152 | 121 | 82 |
++-------+-------+------+------+-----+-----+-----+-----+-----+-----+----+
+
+Quantiles: 
++-----+-----+-----+-----+-----+-----+-----+------+-------+
+|  0% |  1% |  5% | 25% | 50% | 75% | 95% | 99%  |  100% |
++-----+-----+-----+-----+-----+-----+-----+------+-------+
+| 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 1.0 | 5.0 | 14.0 | 126.0 |
++-----+-----+-----+-----+-----+-----+-----+------+-------+
+```
+
+- As you can see above, most submissions have no errors, but there are a good amount of them (over 3000) that have 1 or more errors.This should give us a good base of submissions to look at to make inferrences.
+
+One last bit of analysis is to take a look at frequent 'sequences' of error messages, this can also be done directly through GraphLab methods.
+
+```
++------------------+-------+----------+
+|       item       | value | is exact |
++------------------+-------+----------+
+|      Length      | 25162 |   Yes    |
+| # Missing Values |   0   |   Yes    |
+| # unique values  |  3676 |    No    |
++------------------+-------+----------+
+```
+
+- Errors are aggregated into lists for the sequence, the basic analysis is that we have approximately 3676 unique sequences of error messages. Many of these sequences are short, and there is still more work that could be done to further get at some interesting cases.
+
+However one case that is high up on the frequency list (aside from those with no errors at all) is the following:
+
+```
+["invalid syntax",""] : 233
+```
+
+- This gives us the frequency of one of our interesting cases, what a student makes an error and corrects it.
+
+
 ##Limitations of Existing Methods
 
 Before engaging in this project we did a quick review of some literature on the subject, much of it at this point older but still enlightening.
